@@ -15,7 +15,7 @@ Wifibox的日志位于/var/run/wifibox/appliance/log，可以很方便地观察�
 安装 Wifibox 因为安装需要网络，我们将数据线插入电脑，开启USB网络共享，用ifconfig查看是否识别到设备ue0 dhclient ue0 # 获取ip 连接完后安装 Wifibox">
   <meta itemprop="datePublished" content="2024-07-10T08:27:11+08:00">
   <meta itemprop="dateModified" content="2024-08-08T15:31:05+08:00">
-  <meta itemprop="wordCount" content="146">
+  <meta itemprop="wordCount" content="151">
   <meta itemprop="keywords" content="FreeBSD,Driver"><meta property="og:url" content="https://blog.sorgdream.com/posts/wifibox/">
   <meta property="og:site_name" content="sorgdream&#39;s blog">
   <meta property="og:title" content="Wifibox的配置与使用">
@@ -172,8 +172,8 @@ Wifibox的日志位于/var/run/wifibox/appliance/log，可以很方便地观察�
 </li>
 </ol>
 <p>根据作者的方法，需要将<code>/sbin/dhclient wifibox0</code>添加进<code>/etc/rc.local</code>以解决此问题</p>
-<h2 id="总结">总结</h2>
-<p>FreeBSD对无线网卡的支持尚不及Linux，通过wifibox能间接让FreeBSD吃上Linux的驱动，若想尝试FreeBSD但苦于没有驱动支持，可以尝试此项目</p>
+<h2 id="更新">更新</h2>
+<p>FreeBSD 目前已提供 RTW89 驱动支持，详情 <a href="https://wiki.freebsd.org/WiFi/Rtw89">Realtek RTW89</a></p>
 
 			</div>
 
