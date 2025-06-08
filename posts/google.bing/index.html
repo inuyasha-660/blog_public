@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>google/bing收录 - sorgdream&#39;s blog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="google/bing收录">
+  <meta itemprop="description" content="博客目前已被bing和google收录，bing的点击率比google要多，我们的网站真是蒸蒸日上">
+  <meta itemprop="datePublished" content="2023-08-11T12:22:12+00:00">
+  <meta itemprop="dateModified" content="2023-08-11T12:22:12+00:00">
+  <meta itemprop="wordCount" content="125">
+  <meta itemprop="keywords" content="Hexo"><meta property="og:url" content="https://blog.sorgdream.com/posts/google.bing/">
+  <meta property="og:site_name" content="sorgdream&#39;s blog">
+  <meta property="og:title" content="google/bing收录">
+  <meta property="og:description" content="博客目前已被bing和google收录，bing的点击率比google要多，我们的网站真是蒸蒸日上">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-08-11T12:22:12+00:00">
+    <meta property="article:modified_time" content="2023-08-11T12:22:12+00:00">
+    <meta property="article:tag" content="Hexo">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="google/bing收录">
+  <meta name="twitter:description" content="博客目前已被bing和google收录，bing的点击率比google要多，我们的网站真是蒸蒸日上">
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://blog.sorgdream.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://blog.sorgdream.com/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://blog.sorgdream.com/css/dark.css" />
+
+	<script src="https://blog.sorgdream.com/js/feather.min.js"></script>
+	
+		<script src="https://blog.sorgdream.com/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://blog.sorgdream.com/">
+				<img src="/avatar.jpg" alt="sorgdream&#39;s blog" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://blog.sorgdream.com/">sorgdream&#39;s blog</a></h1>
+	<div class="site-description"><p>逆水行舟，不进则退</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/inuyasha-660" title="inuyasha-660"><i data-feather="github"></i></a></li><li><a href="mailto:i@sorgdream.com" title="i@sorgdream.com"><i data-feather="mail"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/posts">Archive</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+			<li>
+				<a href="/friends">Friends</a>
+			</li>
+			
+			<li>
+				<a href="/index.xml">RSS Feed</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">11</span>
+							<span class="rest">Aug 2023</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">google/bing收录</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>博客目前已被bing和google收录，bing的点击率比google要多，我们的<del>网站真是蒸蒸日上</del></p>
+<h2 id="bing">Bing</h2>
+<ol>
+<li>来到<a href="https://www.bing.com/webmasters">必应网站管理员工具</a> ，用你喜欢的方式登录</li>
+<li>然后点击添加网站，验证的话作者选择的是下载xml文件，Google也可以用相同的方法</li>
+<li>将下载的xml文件直接拖动到mobaxterm，就可以通过网络传输，也可以使用<code>scp</code>命令,不过scp适合两台Linux主机之间互传文件，所以我们还需要安装wsl来配置Linux环境，这里就不细说了，下面是scp命令传输文件的方式</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>scp xxxxxx.xml  xxxx@ip:/home/xxxx/     <span style="color:#7f848e">#其中第一个xxxx要换成你需要传的文件名，第二个换成被传主机的用户名，ip就不用说了，：后面就是你要传到的路径</span>
+</span></span></code></pre></div><ol start="4">
+<li>将bing的xml文件放在<strong>hexo</strong>的<strong>source</strong>目录下</li>
+<li>使用以下命令生成并部署到GitHub</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>hexo clean   <span style="color:#7f848e">#清理缓存</span>
+</span></span><span style="display:flex;"><span>hexo g   <span style="color:#7f848e">#生成</span>
+</span></span><span style="display:flex;"><span>hexo d  <span style="color:#7f848e">#部署</span>
+</span></span></code></pre></div><p>完成后等一会就可以点击验证，确认没问题就可以进入管理界面</p>
+<h2 id="网站地图">网站地图</h2>
+<p>这里最好添加一个网站地图，能提高爬虫率和加快收录</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>npm install hexo-generator-sitemap --save <span style="color:#7f848e">#安装</span>
+</span></span><span style="display:flex;"><span>hexo clean   
+</span></span><span style="display:flex;"><span>hexo g
+</span></span><span style="display:flex;"><span>hexo d
+</span></span></code></pre></div><p>在添加到bing之前最好先测试下，在你的博客地址后添加<code>/sitemap.xml</code>并访问，比如
+<a href="https://xxxxxx.github.io/sitemap.xml">https://xxxxxx.github.io/sitemap.xml</a></p>
+<p><!-- raw HTML omitted -->如果不是404，有输出结果那就是成功了，接下来只需要将它添加到bing的网站地图即可</p>
+<h2 id="google">Google</h2>
+<p>Google和bing差不多，但比bing多一步，而且还要挂代理，稍微麻烦了些</p>
+<ol>
+<li>同样的，访问<a href="https://search.google.com/search-console">Google Search Console</a>使用你的谷歌账户登录</li>
+<li>选择网址前缀，下载Google的<code>html</code>文件，跟bing一样，也是放在<code>soure</code>文件夹，不过是文件按不一样罢了，但是部署到GitHub之前需要加多一条命令，这里引用<a href="https://javahikers.github.io/2019/06/16/personal-blog-being-included-in-google/">javahiker</a>的解释</li>
+</ol>
+<blockquote>
+<p>hexo会将source目录下的文件googlexxxx.html打包到public目录.这个过程中googlexxxx.html的内容被hexo修改了，如果直接部署到我们的网站，google那边会验证不通过。而打包的过程中是不会修改source下的googlexxxx.html文件的，所以可以通过命令行将未被修改的文件googlexxxx.html拷贝过去。这样就能通过google的验证了。</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>hexo clean
+</span></span><span style="display:flex;"><span>hexo g
+</span></span><span style="display:flex;"><span>cp source/googlexxxxxx.html public/  <span style="color:#7f848e">#直接复制到public目录</span>
+</span></span><span style="display:flex;"><span>hexo d
+</span></span></code></pre></div><p>完成后等一会点击验证即可成功</p>
+<h2 id="永久链接">永久链接</h2>
+<p>如果我们修改文章的标题或是创建时间，引索过的网页就会404,需要重新爬网，解决办法就是创建永久链接</p>
+<p>我们使用<code>hexo-abbrlink</code>这个插件来实现</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>npm install hexo-abbrlink --save <span style="color:#7f848e">#安装插件</span>
+</span></span></code></pre></div><p>安装完成后修改hexo根目录下的<code>_config.yml</code>配置文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#7f848e"># URL</span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e">## Set your site url here. For example, if you use GitHub Page, set url as &#39;https://username.github.io/project&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">url</span>: http://xxxxx.github.io   <span style="color:#7f848e">#自己的网址</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">permalink</span>: :year-:month-:day/:abbrlink.html  <span style="color:#7f848e">#链接形式</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">abbrlink</span>:  
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">alg</span>: crc32  <span style="color:#7f848e">#算法</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">rep</span>: hex   <span style="color:#7f848e">#进制</span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">permalink_defaults</span>:
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">pretty_urls</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">trailing_index</span>: <span style="color:#e5c07b">true</span> <span style="color:#7f848e"># Set to false to remove trailing &#39;index.html&#39; from permalinks</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">trailing_html</span>: <span style="color:#e5c07b">true</span> <span style="color:#7f848e"># Set to false to remove trailing &#39;.html&#39; from permalinks</span>
+</span></span></code></pre></div><p>链接形式：hexo默认的形式是<code>year/:month/:day/:title/</code>，我这里改为<code>year-:month-:day/:abbrlink.html</code></p>
+<p>比如<code>https://inuyasha-660.github.io/2023-08-11/21353.html</code>也就是这篇文章的链接</p>
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/hexo">Hexo</a></li>
+							
+						</ul>
+					
+				
+			</div></div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2025  sorgDream CC BY-NC-SA 4.0 |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+  
+
+<script>feather.replace()</script>
+</body>
+</html>

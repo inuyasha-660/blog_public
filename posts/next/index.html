@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Next主题进阶配置 - sorgdream&#39;s blog</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	
+  <meta itemprop="name" content="Next主题进阶配置">
+  <meta itemprop="description" content="最近比较忙，一方面刚开学，另一方面是因为butterfly加载速度太慢，转向next主题，很多东西需要重新配置；这篇文章与其说是教程，不如说是一篇记录">
+  <meta itemprop="datePublished" content="2023-09-17T12:21:23+00:00">
+  <meta itemprop="dateModified" content="2023-09-17T12:21:23+00:00">
+  <meta itemprop="wordCount" content="592">
+  <meta itemprop="keywords" content="Hexo"><meta property="og:url" content="https://blog.sorgdream.com/posts/next/">
+  <meta property="og:site_name" content="sorgdream&#39;s blog">
+  <meta property="og:title" content="Next主题进阶配置">
+  <meta property="og:description" content="最近比较忙，一方面刚开学，另一方面是因为butterfly加载速度太慢，转向next主题，很多东西需要重新配置；这篇文章与其说是教程，不如说是一篇记录">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-09-17T12:21:23+00:00">
+    <meta property="article:modified_time" content="2023-09-17T12:21:23+00:00">
+    <meta property="article:tag" content="Hexo">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Next主题进阶配置">
+  <meta name="twitter:description" content="最近比较忙，一方面刚开学，另一方面是因为butterfly加载速度太慢，转向next主题，很多东西需要重新配置；这篇文章与其说是教程，不如说是一篇记录">
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" media="screen" href="https://blog.sorgdream.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://blog.sorgdream.com/css/main.css" />
+
+        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://blog.sorgdream.com/css/dark.css" />
+
+	<script src="https://blog.sorgdream.com/js/feather.min.js"></script>
+	
+		<script src="https://blog.sorgdream.com/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper">
+		<div class="header">
+	
+		<div class="avatar">
+			<a href="https://blog.sorgdream.com/">
+				<img src="/avatar.jpg" alt="sorgdream&#39;s blog" />
+			</a>
+		</div>
+	
+	<h1 class="site-title"><a href="https://blog.sorgdream.com/">sorgdream&#39;s blog</a></h1>
+	<div class="site-description"><p>逆水行舟，不进则退</p><nav class="nav social">
+			<ul class="flat"><li><a href="https://github.com/inuyasha-660" title="inuyasha-660"><i data-feather="github"></i></a></li><li><a href="mailto:i@sorgdream.com" title="i@sorgdream.com"><i data-feather="mail"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/posts">Archive</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+			<li>
+				<a href="/friends">Friends</a>
+			</li>
+			
+			<li>
+				<a href="/index.xml">RSS Feed</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post">
+			<div class="post-header">
+				
+					<div class="meta">
+						<div class="date">
+							<span class="day">17</span>
+							<span class="rest">Sep 2023</span>
+						</div>
+					</div>
+				
+				<div class="matter">
+					<h1 class="title">Next主题进阶配置</h1>
+				</div>
+			</div>
+					
+			<div class="markdown">
+				<p>最近比较忙，一方面刚开学，另一方面是因为butterfly加载速度太慢，转向next主题，很多东西需要重新配置；这篇文章与其说是教程，不如说是一篇记录</p>
+<h2 id="next主题">Next主题</h2>
+<blockquote>
+<p>🎉 Elegant and powerful theme for Hexo.</p>
+</blockquote>
+<p>一个黑白为主色调的主题，很多人使用，却没有一个完整的中文教程；你能在Github上搜到三个next</p>
+<ul>
+<li><a href="https://github.com/next-theme/hexo-theme-next">hexo-theme/hexo-theme-next</a></li>
+<li><a href="https://github.com/theme-next/hexo-theme-next">theme-hexo/hexo-theme-next</a></li>
+<li><a href="https://github.com/iissnan/hexo-theme-next">iissnan</a></li>
+</ul>
+<p>我推荐使用第一个，也就是<strong>hexo-theme/hex-theme-next</strong> 因为讨论的人多，版本也是最新的
+<!-- raw HTML omitted -->目前next还没有一个统一的教程，网上也有三篇不同的教程</p>
+<ul>
+<li><a href="https://hexo-next.readthedocs.io/zh_CN/latest/">Hexo-Next</a>优点是支持中文，比较完善，缺点是没有官方内容多</li>
+<li><a href="http://theme-next.iissnan.com/">Next使用文档</a>同样支持中文，但是覆盖和内容没有上一个全</li>
+<li><a href="https://theme-next.js.org/">Next</a>应该是官方文档，覆盖最全，但不支持中文</li>
+</ul>
+<p>以上三个文档建议第一和第三混合看，第二个因为有点过时可以不看</p>
+<h3 id="评论">评论</h3>
+<p>一个好的博客必定不能缺少评论系统，目前有许多解决方案可供选择，但我认为最方便，快捷的还是<a href="https://utteranc.es/">utterances</a></p>
+<h4 id="utterances">utterances</h4>
+<blockquote>
+<p>A lightweight comments widget built on GitHub issues.</p>
+</blockquote>
+<ul>
+<li>以下以utt来代替utterances</li>
+</ul>
+<p>作者尝试在butterfly主题中使用valine，但最终以失败告终，尝试gitalk同样因token被墙而失败，最后发现了这个宝藏评论系统</p>
+<ol>
+<li>要使用utt，我们首先要创建一个仓库，必须要是公开的，然后我们需要安装<a href="https://github.com/apps/utterances"> utterances app</a>到我们的仓库</li>
+<li>然后到了选择Blog Post ↔️ Issue Mapping 推荐<strong>Issue title contains page title</strong> 不容易混淆</li>
+<li>最后编辑Next的<code>_config.yml</code>中的<strong>utterances</strong></li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#e06c75">utterances</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">enable</span>: <span style="color:#e5c07b">true</span>   <span style="color:#7f848e">#将false改为true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">repo</span>: user-name/repo-name <span style="color:#7f848e"># 填入自己的仓库</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#7f848e"># Available values: pathname | url | title | og:title</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">issue_term</span>: title  <span style="color:#7f848e">#设置为title</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#7f848e"># Available values: github-light | github-dark | preferred-color-scheme | github-dark-orange | icy-dark | dark-blue | photon-dark | boxy-light</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">theme</span>: github-light
+</span></span></code></pre></div><p>完成后，使用<code>hexo s --debug</code>本地预览博客，看是否出现评论框</p>
+<h3 id="文章关闭评论">文章关闭评论</h3>
+<p>设置完后默认会在所有page开启评论，如果想关闭分类或关于里的评论，可以在index.md中设定<code>comments: false</code>即可关闭</p>
+<h3 id="友链">友链</h3>
+<p>Next主题自带的友链位于侧边栏，但人数一旦多起来便会拥挤不堪，于是参考<a href="https://blog.fufu.ink/2023/05/improvefdlinks.html#waline">浮生若梦</a>的教程 <del>在他的基础上删去了过期和推荐</del> 大佬更新了配置，现在可以直接从yml读取配置</p>
+<blockquote>
+<p>又更新了
+之前要看 html 代码、改源代码，太麻烦了。
+仿照 butterfly 的友链书写方式做成变量都从 yml 中读取了</p>
+</blockquote>
+<ol>
+<li>首先在你<code>Next文件夹/layout</code>中创建一个名为<code>links.njk</code>的文件，写入以下内容</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>    {<span style="color:#7f848e">##################}</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#7f848e">### LINKS BLOCK ###}</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#7f848e">##################}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">style</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    @<span style="color:#e06c75">media</span> (<span style="color:#e5c07b">min</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">width</span>: <span style="color:#d19a66">768</span><span style="color:#e06c75">px</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#56b6c2">.</span><span style="color:#e06c75">link</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">card</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">width</span>: <span style="color:#d19a66">50</span><span style="color:#56b6c2">%</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">float</span>: <span style="color:#e06c75">left</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">.</span><span style="color:#e06c75">link</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">card</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">position</span>: <span style="color:#e06c75">relative</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">min</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">height</span>: <span style="color:#d19a66">1</span><span style="color:#e06c75">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">padding</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">right</span>: <span style="color:#d19a66">15</span><span style="color:#e06c75">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">padding</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">left</span>: <span style="color:#d19a66">15</span><span style="color:#e06c75">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">box</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">sizing</span>: <span style="color:#e06c75">border</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">box</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">.</span><span style="color:#e06c75">link</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">user</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">list</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">margin</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">bottom</span>: <span style="color:#d19a66">5</span><span style="color:#e06c75">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">border</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">radius</span>: <span style="color:#d19a66">3</span><span style="color:#e06c75">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">padding</span>: <span style="color:#d19a66">15</span><span style="color:#e06c75">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">display</span>: <span style="color:#e06c75">block</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">box</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">shadow</span>: <span style="color:#d19a66">0</span> <span style="color:#d19a66">2</span><span style="color:#e06c75">px</span> <span style="color:#d19a66">6</span><span style="color:#e06c75">px</span> <span style="color:#e06c75">rgba</span>(<span style="color:#d19a66">0</span>,<span style="color:#d19a66">0</span>,<span style="color:#d19a66">0</span>,<span style="color:#56b6c2">.</span><span style="color:#d19a66">1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">position</span>: <span style="color:#e06c75">relative</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">.</span><span style="color:#e06c75">link</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">user</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">list</span>:<span style="color:#e06c75">hover</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">background</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">color</span>: <span style="color:#7f848e">#f6f8f8;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">text</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">decoration</span>: <span style="color:#e06c75">none</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">#link-container a{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">border</span>: <span style="color:#e06c75">none</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">.</span><span style="color:#e06c75">user</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">avatar</span> <span style="color:#e06c75">img</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">border</span>: <span style="color:#d19a66">2</span><span style="color:#e06c75">px</span> <span style="color:#e06c75">solid</span> <span style="color:#7f848e">#fff;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">height</span>: <span style="color:#e06c75">auto</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">vertical</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">align</span>: <span style="color:#e06c75">middle</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">width</span>: <span style="color:#d19a66">100</span><span style="color:#56b6c2">%</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">border</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">radius</span>: <span style="color:#d19a66">20</span><span style="color:#56b6c2">%</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">max</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">width</span>: <span style="color:#d19a66">100</span><span style="color:#56b6c2">%!</span><span style="color:#e06c75">important</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">margin</span>: <span style="color:#d19a66">0</span><span style="color:#e06c75">px</span> <span style="color:#56b6c2">!</span><span style="color:#e06c75">important</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">.</span><span style="color:#e06c75">clearfix</span>:<span style="color:#e06c75">after</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">content</span>: <span style="color:#98c379">&#39; &#39;</span>; 
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">display</span>: <span style="color:#e06c75">block</span>; 
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">height</span>: <span style="color:#d19a66">0</span>; 
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">clear</span>: <span style="color:#e06c75">both</span>; 
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">visibility</span>: <span style="color:#e06c75">hidden</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">.</span><span style="color:#e06c75">text</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">ellipsis</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">display</span>: <span style="color:#e06c75">block</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">text</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">overflow</span>: <span style="color:#e06c75">ellipsis</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">overflow</span>: <span style="color:#e06c75">hidden</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">white</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">space</span>: <span style="color:#e06c75">nowrap</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">font</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">size</span>: <span style="color:#d19a66">13</span><span style="color:#e06c75">px</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">.</span><span style="color:#e06c75">user</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">message</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">display</span>: <span style="color:#e06c75">block</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">overflow</span>: <span style="color:#e06c75">hidden</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">.</span><span style="color:#e06c75">user</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">description</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">color</span>: <span style="color:#7f848e">#a0a0a0;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">.</span><span style="color:#e06c75">user</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">avatar</span>{
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">display</span>: <span style="color:#e06c75">inline</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">block</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">width</span>: <span style="color:#d19a66">52</span><span style="color:#e06c75">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">height</span>: <span style="color:#e06c75">auto</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">float</span>: <span style="color:#e06c75">left</span> <span style="color:#56b6c2">!</span><span style="color:#e06c75">important</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">margin</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">right</span>: <span style="color:#d19a66">15</span><span style="color:#e06c75">px</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">position</span>: <span style="color:#e06c75">relative</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">white</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">space</span>: <span style="color:#e06c75">nowrap</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span><span style="color:#e06c75">style</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">div</span> <span style="color:#e06c75">id</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;link-container&#34;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#56b6c2">%</span> <span style="color:#c678dd">for</span> <span style="color:#e06c75">link_config</span> <span style="color:#56b6c2">in</span> <span style="color:#e06c75">site</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">data</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">links</span> <span style="color:#56b6c2">%</span>}
+</span></span><span style="display:flex;"><span>    {<span style="color:#56b6c2">%</span> <span style="color:#c678dd">if</span> <span style="color:#e06c75">link_config</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">class_name</span> <span style="color:#56b6c2">%</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">h2</span> <span style="color:#e06c75">id</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;{{ link_config.class_name }}&#34;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">a</span> <span style="color:#e06c75">href</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;#{{ link_config.class_name }}&#34;</span> <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;headerlink&#34;</span> <span style="color:#e06c75">title</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;{{ link_config.class_name }}&#34;</span> <span style="color:#e06c75">data</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">pjax</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">state</span><span style="color:#56b6c2">&gt;&lt;/</span><span style="color:#e06c75">a</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>        {{ <span style="color:#e06c75">link_config</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">class_name</span> }}
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;/</span><span style="color:#e06c75">h2</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#56b6c2">%</span> <span style="color:#c678dd">else</span> <span style="color:#56b6c2">%</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">hr</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#56b6c2">%</span> <span style="color:#e06c75">endif</span> <span style="color:#56b6c2">%</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">div</span> <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;clearfix&#34;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#56b6c2">%</span> <span style="color:#c678dd">for</span> <span style="color:#e06c75">link</span> <span style="color:#56b6c2">in</span> <span style="color:#e06c75">link_config</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">link_list</span> <span style="color:#56b6c2">%</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">div</span> <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;link-card&#34;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">a</span> <span style="color:#e06c75">href</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;{{ link.site }}&#34;</span> <span style="color:#e06c75">target</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;_blank&#34;</span> <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;link-user-list&#34;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">span</span> <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;user-avatar&#34;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">img</span> <span style="color:#e06c75">src</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;{{ link.avatar }}&#34;</span> <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;nofancybox&#34;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#56b6c2">&lt;/</span><span style="color:#e06c75">span</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">span</span> <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;user-message&#34;</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">span</span> <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;text-ellipsis&#34;</span><span style="color:#56b6c2">&gt;</span>{{ <span style="color:#e06c75">link</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">nickname</span> }}<span style="color:#56b6c2">&lt;/</span><span style="color:#e06c75">span</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">span</span> <span style="color:#c678dd">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;user-description text-ellipsis&#34;</span><span style="color:#56b6c2">&gt;</span>{{ <span style="color:#e06c75">link</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">info</span> }}<span style="color:#56b6c2">&lt;/</span><span style="color:#e06c75">span</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#56b6c2">&lt;/</span><span style="color:#e06c75">span</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#56b6c2">&lt;/</span><span style="color:#e06c75">a</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;/</span><span style="color:#e06c75">div</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#56b6c2">%</span> <span style="color:#e06c75">endfor</span> <span style="color:#56b6c2">%</span>}
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;/</span><span style="color:#e06c75">div</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#56b6c2">%</span> <span style="color:#e06c75">endfor</span> <span style="color:#56b6c2">%</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;</span><span style="color:#e06c75">div</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    {{ <span style="color:#e06c75">page</span><span style="color:#56b6c2">.</span><span style="color:#e06c75">content</span> }}
+</span></span><span style="display:flex;"><span>    <span style="color:#56b6c2">&lt;/</span><span style="color:#e06c75">div</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#56b6c2">&lt;/</span><span style="color:#e06c75">div</span><span style="color:#56b6c2">&gt;</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#7f848e">######################}</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#7f848e">### END LINKS BLOCK ###}</span>
+</span></span><span style="display:flex;"><span>    {<span style="color:#7f848e">######################}</span>
+</span></span></code></pre></div><p>然后再打开<code>Next文件夹/layout/page.njk</code> ，在<code>block title</code>区域中的<code>{{- __('title.schedule') + page_title_suffix }}</code>后面添加上两行</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>{% block title %}
+</span></span><span style="display:flex;"><span>  {%- set page_title_suffix = &#39; | &#39; + title %}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  {%- if page.type === &#39;categories&#39; and not page.title %}
+</span></span><span style="display:flex;"><span>    {{- __(&#39;title.category&#39;) + page_title_suffix }}
+</span></span><span style="display:flex;"><span>  {%- elif page.type === &#39;tags&#39; and not page.title %}
+</span></span><span style="display:flex;"><span>    {{- __(&#39;title.tag&#39;) + page_title_suffix }}
+</span></span><span style="display:flex;"><span>  {%- elif page.type === &#39;schedule&#39; and not page.title %}
+</span></span><span style="display:flex;"><span>    {{- __(&#39;title.schedule&#39;) + page_title_suffix }}
+</span></span><span style="display:flex;"><span>+  {%- elif page.type === &#39;links&#39; and not page.title %}
+</span></span><span style="display:flex;"><span>+    {{- __(&#39;title.links&#39;) + page_title_suffix }}
+</span></span><span style="display:flex;"><span>  {%- else %}
+</span></span><span style="display:flex;"><span>    {{- page.title + page_title_suffix }}
+</span></span><span style="display:flex;"><span>  {%- endif %}
+</span></span><span style="display:flex;"><span>{% endblock %}
+</span></span></code></pre></div><p>接下来在下面的<code>PAGE BODY</code>中添加</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>{### PAGE BODY ###}
+</span></span><span style="display:flex;"><span>      {#################}
+</span></span><span style="display:flex;"><span>      &lt;div class=&#34;post-body{% if page.direction and page.direction.toLowerCase() === &#39;rtl&#39; %} rtl{% endif %}&#34;&gt;
+</span></span><span style="display:flex;"><span>        {%- if page.type === &#39;tags&#39; %}
+</span></span><span style="display:flex;"><span>          {%- include &#39;_partials/page/tags.njk&#39; -%}
+</span></span><span style="display:flex;"><span>        {% elif page.type === &#39;categories&#39; %}
+</span></span><span style="display:flex;"><span>          {%- include &#39;_partials/page/categories.njk&#39; -%}
+</span></span><span style="display:flex;"><span>        {% elif page.type === &#39;schedule&#39; %}
+</span></span><span style="display:flex;"><span>          {%- include &#39;_partials/page/schedule.njk&#39; -%}
+</span></span><span style="display:flex;"><span>+        {% elif page.type === &#39;links&#39; %}
+</span></span><span style="display:flex;"><span>+          {%- include &#39;links.njk&#39; -%}
+</span></span><span style="display:flex;"><span>        {% else %}
+</span></span><span style="display:flex;"><span>          {{ page.content }}
+</span></span><span style="display:flex;"><span>        {%- endif %}
+</span></span><span style="display:flex;"><span>      &lt;/div&gt;
+</span></span><span style="display:flex;"><span>      {#####################}
+</span></span><span style="display:flex;"><span>      {### END PAGE BODY ###}
+</span></span><span style="display:flex;"><span>      {#####################}
+</span></span></code></pre></div><p>接下来和创建tags、about页一样，使用<code>hexo new page links</code>创建一个新页面，修改<code>index.md</code>添加申请信息和其他你想写在友链里的，设置type为links</p>
+<p>最后在<code>hexo/source/</code>创建一个目录<code>_data</code>，里面再创建一个<code>links.yml</code>文件并填入以下内容</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#7f848e"># 参数说明</span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># class_name 选填，可以理解为友链组的名字，如果不填则会在顶部生成一个分割线</span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># nickname 博客名称</span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># site 博客地址</span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># info 博客简介</span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># avatar 博客logo</span>
+</span></span><span style="display:flex;"><span><span style="color:#7f848e"># 填写时注意缩进！</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#e06c75">class_name</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">link_list</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#e06c75">nickname</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">site</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">info</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">avatar</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#e06c75">nickname</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">site</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">info</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">avatar</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#e06c75">class_name</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#e06c75">link_list</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#e06c75">nickname</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">site</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">info</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">avatar</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#e06c75">nickname</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">site</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">info</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#e06c75">avatar</span>:
+</span></span></code></pre></div><p>然后找到<strong>Menu</strong>区域，按照格式增加一个友链页面；完成后找到<code>languages/zh-CN.yml</code>，在Menu区域中添加友链的汉化</p>
+<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#e06c75">links</span>: 友链
+</span></span></code></pre></div><p>即可完成配置，以后想增加友链只需要在<code>_config.yml</code>中增添信息即可</p>
+<h3 id="随笔">随笔</h3>
+<p>有时我们可能想说点什么，但太短了成不了文章，于是我打算创建一个随笔页，专门记录短篇的文章</p>
+<ol>
+<li>使用<code>hexo new page essay</code>创建一个随笔页</li>
+<li>修改<code>source/essay/index.md</code>里的内容，修改标题并添加上<code>type: essay</code></li>
+<li>在主题配置文件中的<strong>Menu</strong>区域添加上随笔页</li>
+<li>在<code>languages/zh-CN.yml</code>中添加友链的翻译即可</li>
+</ol>
+<p>之后我们就可以在index.md中写文章了，但是看空想大佬的说说比我要好看，大佬没公布教程，我也没敢直接要，只能用折中的办法了</p>
+<h2 id="域名绑定">域名绑定</h2>
+<p>因为.xyz续费太贵，本身对这个域名也不是很满意，于是，一天前，我重新注册了一个新的域名<code>inuya.ltd</code>，并将他与我的博客绑定</p>
+<ol>
+<li>要绑定域名，我们首先设置一个CNAME解析，将它指向原本的博客链接，再设置一个AAAA，通过<code>ping username.github.io</code>获取ipv6地址</li>
+<li>然后在你博客的<code>source</code>目录创建一个名为<code>CNAME</code>的文件，填入你的域名</li>
+<li>在你的设置中找到page/Custom domain，填入你的域名，点击save即可</li>
+</ol>
+<p>设置完后使用原本的username.github.io会重定向到你的网站；尝试用你的域名访问，看能否访问成功</p>
+<h2 id="google收录">Google收录</h2>
+<p>因为next的配置里带有收录的配置，所以我们只要选择HTML标记
+<!-- raw HTML omitted -->将<code>content=</code>后面的内容复制到主题<code>_config.yml</code>中的<code>google_site_verification:</code></p>
+<p>然后再使用<code>hexo clean &amp;&amp; hexo g</code> <code>hexo d</code>部署到Github即可完成验证，bing同理</p>
+<h2 id="参考引用">参考|引用</h2>
+<ul>
+<li><a href="https://blog.csdn.net/Mancuojie/article/details/119906071">【Hexo】域名绑定篇</a></li>
+<li><a href="https://blog.fufu.ink/2023/05/improvefdlinks.html">空想笔记</a></li>
+</ul>
+			</div>
+
+			<div class="tags">
+				
+					
+						<ul class="flat">
+							
+							<li><a href="/tags/hexo">Hexo</a></li>
+							
+						</ul>
+					
+				
+			</div></div>
+	</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div>2025  sorgDream CC BY-NC-SA 4.0 |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+  
+
+<script>feather.replace()</script>
+</body>
+</html>
