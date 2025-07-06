@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用 gtk4 写 todo | croyoux&#39;s blog</title>
+
+      <link rel="stylesheet" href="/css/main.min.898ba31517d006a90a71e1fe47713928df9590df0d1c5aa1848183d930492ab6.css" integrity="sha256-iYujFRfQBqkKceH&#43;R3E5KN&#43;VkN8NHFqhhIGD2TBJKrY=" crossorigin="anonymous">
+
+
+
+</head>
+
+<body>
+    <header>
+        <h1><a href="/">croyoux&#39;s blog</a></h1>
+<style>
+    h1 a {
+        color: white;
+    }
+</style>
+
+
+  <nav>
+    <ul>
+    <li>
+      <a href="/tags">Tags</a>
+    </li>
+    <li>
+      <a href="/friends">Friends</a>
+    </li>
+    <li>
+      <a href="/index.xml">RSS Feed</a>
+    </li>
+    <li>
+      <a href="/about">About</a>
+    </li>
+    </ul>
+  </nav>
+
+<style>
+    header ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header li {
+
+        flex: 1;
+    }
+
+    @media (max-width: 600px) {
+        header ul {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        header li {
+            flex: 1 0 50%;
+            width: 50%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    }
+</style>
+    </header>
+    <main>
+        
+<div class="post">
+    <h1>用 gtk4 写 todo</h1>
+
+    
+    
+    <time datetime="2025-07-05T14:25:31&#43;08:00">July 5, 2025</time>
+
+    <p>终于考完了，期末考9科实在是太折磨了；发现自己很久没写文章了，上次更新还在去年，最近都在探索gtk，
+就顺便写一篇记录下成果。</p>
+<h2 id="工具">工具</h2>
+<p>gtk主要参考的就是官方的<a href="https://docs.gtk.org/gtk4/">API reference</a>，目前支持gtk3-4(我想也没人会去用gtk3以前的版本)的内容；其中包含
+一个<a href="https://docs.gtk.org/gtk4/visual_index.html">Widget Gallery</a>，里面有所有当前版本的控件介绍和API。</p>
+<p>官方的文档我认为还是很详细的，但有时候不清楚怎么使用时也还是需要去搜索用例，官方的文档一般不包含示例</p>
+<h3 id="ide">IDE</h3>
+<p>和gtk有关的ide我目前找到的是<a href="https://apps.gnome.org/Builder/">Gnome Builder</a>，介绍说是Gnome环境下的开发工具；我曾经用它编写过一些小
+项目，但我认为它的补全和插件都不够完善，所以转而使用Vscode。</p>
+<p>真要说起来，gtk的编写应该只需要一个文本编辑器，gtk4的大部分函数名都比较好记，这方面IDE也只是方便补全一些变量和函数名，提供高亮支持</p>
+<h3 id="构建工具">构建工具</h3>
+<p>和上文说的一样，你可以选择不使用任何构建工具，使用<code>pkg-config</code>查找依赖和<code>cflags</code>后手动编译；但这样太过原始了，也不方便调试</p>
+<h4 id="meson">Meson</h4>
+<p>Meson是gnome项目主要的编译工具，Gnome Builder也会默认安装此工具，它基于一个简单的构建配置生成<code>build.ninja</code>，有点像Cmake和Makefile。</p>
+<p>此外，在build目录下会生成<code>compile_commands.json</code>，clangd可以根据此文件提供高亮和补全支持；Meson还支持增量编译，比直接重新编译更快。</p>
+<p>Meson的文档中就包含构建gtk的示例，用<code>dependency</code>提供名称，Meson就能自动查找并引入依赖</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-meson" data-lang="meson"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>deps <span style="color:#ff6ac1">=</span> [<span style="color:#ff5c57">dependency</span>(<span style="color:#5af78e">&#39;gtk4&#39;</span>), <span style="color:#ff5c57">dependency</span>(<span style="color:#5af78e">&#39;libadwaita-1&#39;</span>), <span style="color:#ff5c57">dependency</span>(<span style="color:#5af78e">&#39;libcjson&#39;</span>)]
+</span></span></code></pre></div><h2 id="libadwaita-1">libadwaita-1</h2>
+<p>在依赖中引入<code>Adw</code>能让gtk应用更加现代化，符合Gnome的风格；使用方式和默认的gtk初始化相似</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#57c7ff">g_autoptr</span> (AdwApplication) app <span style="color:#ff6ac1">=</span> <span style="color:#ff5c57">NULL</span>;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>app <span style="color:#ff6ac1">=</span> <span style="color:#57c7ff">adw_application_new</span> (<span style="color:#5af78e">&#34;org.example.Hello&#34;</span>, G_APPLICATION_DEFAULT_FLAGS);
+</span></span></code></pre></div><p>创建<code>app</code>并用<code>adw_application_new()</code>初始化；官方示例中的<code>G_APPLICATION_FLAGS_NONE</code>已被弃用，用<code>G_APPLICATION_DEFAULT_FLAGS</code>代替</p>
+<h2 id="ui绘制">UI绘制</h2>
+<p>我选择在<code>ui.c</code>中绘制ui，将<code>app</code>与<code>home_ui</code>绑定</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#57c7ff">g_signal_connect</span> (app, <span style="color:#5af78e">&#34;activate&#34;</span>, <span style="color:#57c7ff">G_CALLBACK</span> (home_ui), <span style="color:#ff5c57">NULL</span>);
+</span></span></code></pre></div><h3 id="搜索">搜索</h3>
+<p>gtk提供了名为<code>SearchEntry</code>的控件用于搜索，还有一个信号<code>GtkSearchEntry::search-changed</code>，据文档说，</p>
+<blockquote>
+<p>To make filtering appear more reactive, it is a good idea to not react to every change in the entry text immediately, but only after a short delay</p>
+</blockquote>
+<p>也就是延迟操作输入的内容</p>
+<h4 id="输入处理">输入处理</h4>
+<p>在获取到查询内容后，先删除原有的todo，再循环匹配所有目标类型的符合todo</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff6ac1">if</span> (<span style="color:#ff6ac1">!</span><span style="color:#57c7ff">strcmp</span> (Todo_s.type[i], Todo_type)) <span style="color:#78787e">// 目标类型
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#78787e"></span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    <span style="color:#ff6ac1">if</span> (<span style="color:#57c7ff">strstr</span> (Todo_s.event[i], target) <span style="color:#ff6ac1">!=</span> <span style="color:#ff5c57">NULL</span>) <span style="color:#78787e">// 包含输入的todo
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#78787e"></span>    {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>}
+</span></span></code></pre></div><p>再分别处理<code>done</code>和<code>undone</code>类型的todo</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff6ac1">if</span> (<span style="color:#ff6ac1">!</span><span style="color:#57c7ff">strcmp</span> (Todo_type, <span style="color:#5af78e">&#34;done&#34;</span>))
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    <span style="color:#57c7ff">gtk_check_button_set_active</span> (<span style="color:#57c7ff">GTK_CHECK_BUTTON</span> (ckbox_todo), <span style="color:#ff5c57">true</span>); <span style="color:#78787e">// 设置状态为true(已完成)
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#78787e"></span>    <span style="color:#57c7ff">gtk_widget_set_sensitive</span> (ckbox_todo, FALSE); <span style="color:#78787e">// 将checkbox设为非敏感
+</span></span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span><span style="color:#78787e"></span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#ff6ac1">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>    <span style="color:#57c7ff">g_signal_connect</span> (ckbox_todo, <span style="color:#5af78e">&#34;toggled&#34;</span>, <span style="color:#57c7ff">G_CALLBACK</span> (change_todo_to_done), <span style="color:#ff5c57">NULL</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span>}
+</span></span></code></pre></div><h3 id="样式">样式</h3>
+<p>gtk支持用类css格式设置控件的样式，如字体大小，背景等</p>
+<p>我也不知道怎么翻译provider更好，就当作css样式的提供者</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>GtkCssProvider <span style="color:#ff6ac1">*</span>provider;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>provider <span style="color:#ff6ac1">=</span> <span style="color:#57c7ff">gtk_css_provider_new</span> ();
+</span></span></code></pre></div><p>加载样式</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#57c7ff">gtk_css_provider_load_from_string</span> (provider, <span style="color:#5af78e">&#34;checkbutton {&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>                                                 <span style="color:#5af78e">&#34; font-size: 22px;&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>                                                 <span style="color:#5af78e">&#34; background-color: #322f3b;&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>                                                 <span style="color:#5af78e">&#34; border-radius: 10px;&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>                                                 <span style="color:#5af78e">&#34;}&#34;</span>);
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#57c7ff">gtk_style_context_add_provider_for_display</span> (<span style="color:#57c7ff">gdk_display_get_default</span> (), <span style="color:#57c7ff">GTK_STYLE_PROVIDER</span> (provider),
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>                                                GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
+</span></span></code></pre></div><p>也可以直接用<code>gtk_widget_set_size_request()</code>函数调整大小</p>
+<h2 id="添加todo">添加todo</h2>
+<p>点击添加时在中间创建<code>Entey</code>和<code>Button</code>，点击<code>取消</code>或<code>确定</code>时删除</p>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#57c7ff">gtk_center_box_set_center_widget</span> (<span style="color:#57c7ff">GTK_CENTER_BOX</span> (Cntbox), <span style="color:#ff5c57">NULL</span>);
+</span></span></code></pre></div><h3 id="删除控件">删除控件</h3>
+<p>容器中包含删除函数，可以用<code>gtk_widget_get_first_child (&lt;Containers)</code>获取控件后用<code>gtk_box_remove (GTK_&lt;CONTAINER&gt; (&lt;Container&gt;), widget)</code>删除</p>
+<h2 id="成品">成品</h2>
+<p>完成后的效果如下</p>
+<p><img src="https://gitlab.com/croy_proj/todo_gtk/-/raw/main/todo_gtk.png?ref_type=heads" alt="todo_gtk">
+有点粗糙，有一些想实现的功能搁置了，后续慢慢更新吧</p>
+<p>Gitlab: <a href="https://gitlab.com/croy_proj/todo_gtk">todo_gtk</a></p>
+
+    
+  <div>
+    <div>Tags:</div>
+    <ul>
+        <li><a href="/tags/c/">C</a></li>
+        <li><a href="/tags/gtk/">Gtk</a></li>
+    </ul>
+  </div>
+
+</div>
+
+    </main>
+    <footer>
+        <p>FROM 2023 TO 2025 &&lt;|>& Croyoux Lite</p>
+
+    </footer>
+</body>
+
+</html>

@@ -1,131 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us" dir="ltr">
+
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Frp自建内网穿透 - sorgdream&#39;s blog</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	
-  <meta itemprop="name" content="Frp自建内网穿透">
-  <meta itemprop="description" content="这几天一直在折腾内网穿透的事，原因很简单，服务器的ROM不够大，又没钱升级配置，又拍云的免费OSS不备案无法绑定域名，免费的内网穿透速率太小了，更别提还有流量限制
-想了想貌似只能自己建一个了，刚好手里有吃灰的Orangepi Zeor3，买的时候配了张128G的TF卡，虽然速度一般，但对于我来说是绰绰有余了
-frp 提到内网穿透，想到的肯定是大名顶顶的frp，目前在Github上已有76.3K starred
-网上的很多文章大多是教你用基于frp的一键配置脚本，但试了几个发现都没用后决定自己尝试
-安装&amp;使用 frp的安装很简单，参照文档的教程
-到Releases处下载适合的架构/系统的压缩包，解压到任意目录
-使用./frps -c ./frps.toml启动服务端
-使用./frpc -c ./frpc.toml启动客户端
-使用 systemd 开机自启动 如果断开ssh连接，frp服务也会断开;可以将它设置为开机自启
-(如果尚未安装)使用apt install systemd 安装，其他发行版使用其包管理器即可 编辑/etc/systemd/system/frps.service创建frp服务配置，写入以下内容 [Unit] # 服务名称，可自定义 Description = frp server After = network.target syslog.target Wants = network.target [Service] Type = simple # 启动frps的命令，需修改为您的frps的安装路径 ExecStart = /path/to/frps -c /path/to/frps.toml [Install] WantedBy = multi-user.target 3.管理命令
-# 启动frp sudo systemctl start frps # 停止frp sudo systemctl stop frps # 重启frp sudo systemctl restart frps # 查看frp状态 sudo systemctl status frps # 开机自启动 sudo systemctl enable frps 之后的frpc也是大同小异，只需要更改名字和位置即可">
-  <meta itemprop="datePublished" content="2024-01-22T18:20:30+00:00">
-  <meta itemprop="dateModified" content="2024-01-22T18:20:30+00:00">
-  <meta itemprop="wordCount" content="361">
-  <meta itemprop="keywords" content="图床,Linux"><meta property="og:url" content="https://blog.sorgdream.com/posts/nat-traversal/">
-  <meta property="og:site_name" content="sorgdream&#39;s blog">
-  <meta property="og:title" content="Frp自建内网穿透">
-  <meta property="og:description" content="这几天一直在折腾内网穿透的事，原因很简单，服务器的ROM不够大，又没钱升级配置，又拍云的免费OSS不备案无法绑定域名，免费的内网穿透速率太小了，更别提还有流量限制
-想了想貌似只能自己建一个了，刚好手里有吃灰的Orangepi Zeor3，买的时候配了张128G的TF卡，虽然速度一般，但对于我来说是绰绰有余了
-frp 提到内网穿透，想到的肯定是大名顶顶的frp，目前在Github上已有76.3K starred
-网上的很多文章大多是教你用基于frp的一键配置脚本，但试了几个发现都没用后决定自己尝试
-安装&amp;使用 frp的安装很简单，参照文档的教程
-到Releases处下载适合的架构/系统的压缩包，解压到任意目录
-使用./frps -c ./frps.toml启动服务端
-使用./frpc -c ./frpc.toml启动客户端
-使用 systemd 开机自启动 如果断开ssh连接，frp服务也会断开;可以将它设置为开机自启
-(如果尚未安装)使用apt install systemd 安装，其他发行版使用其包管理器即可 编辑/etc/systemd/system/frps.service创建frp服务配置，写入以下内容 [Unit] # 服务名称，可自定义 Description = frp server After = network.target syslog.target Wants = network.target [Service] Type = simple # 启动frps的命令，需修改为您的frps的安装路径 ExecStart = /path/to/frps -c /path/to/frps.toml [Install] WantedBy = multi-user.target 3.管理命令
-# 启动frp sudo systemctl start frps # 停止frp sudo systemctl stop frps # 重启frp sudo systemctl restart frps # 查看frp状态 sudo systemctl status frps # 开机自启动 sudo systemctl enable frps 之后的frpc也是大同小异，只需要更改名字和位置即可">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-01-22T18:20:30+00:00">
-    <meta property="article:modified_time" content="2024-01-22T18:20:30+00:00">
-    <meta property="article:tag" content="图床">
-    <meta property="article:tag" content="Linux">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frp自建内网穿透 | croyoux&#39;s blog</title>
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Frp自建内网穿透">
-  <meta name="twitter:description" content="这几天一直在折腾内网穿透的事，原因很简单，服务器的ROM不够大，又没钱升级配置，又拍云的免费OSS不备案无法绑定域名，免费的内网穿透速率太小了，更别提还有流量限制
-想了想貌似只能自己建一个了，刚好手里有吃灰的Orangepi Zeor3，买的时候配了张128G的TF卡，虽然速度一般，但对于我来说是绰绰有余了
-frp 提到内网穿透，想到的肯定是大名顶顶的frp，目前在Github上已有76.3K starred
-网上的很多文章大多是教你用基于frp的一键配置脚本，但试了几个发现都没用后决定自己尝试
-安装&amp;使用 frp的安装很简单，参照文档的教程
-到Releases处下载适合的架构/系统的压缩包，解压到任意目录
-使用./frps -c ./frps.toml启动服务端
-使用./frpc -c ./frpc.toml启动客户端
-使用 systemd 开机自启动 如果断开ssh连接，frp服务也会断开;可以将它设置为开机自启
-(如果尚未安装)使用apt install systemd 安装，其他发行版使用其包管理器即可 编辑/etc/systemd/system/frps.service创建frp服务配置，写入以下内容 [Unit] # 服务名称，可自定义 Description = frp server After = network.target syslog.target Wants = network.target [Service] Type = simple # 启动frps的命令，需修改为您的frps的安装路径 ExecStart = /path/to/frps -c /path/to/frps.toml [Install] WantedBy = multi-user.target 3.管理命令
-# 启动frp sudo systemctl start frps # 停止frp sudo systemctl stop frps # 重启frp sudo systemctl restart frps # 查看frp状态 sudo systemctl status frps # 开机自启动 sudo systemctl enable frps 之后的frpc也是大同小异，只需要更改名字和位置即可">
-<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" media="screen" href="https://blog.sorgdream.com/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://blog.sorgdream.com/css/main.css" />
+      <link rel="stylesheet" href="/css/main.min.898ba31517d006a90a71e1fe47713928df9590df0d1c5aa1848183d930492ab6.css" integrity="sha256-iYujFRfQBqkKceH&#43;R3E5KN&#43;VkN8NHFqhhIGD2TBJKrY=" crossorigin="anonymous">
 
-        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://blog.sorgdream.com/css/dark.css" />
 
-	<script src="https://blog.sorgdream.com/js/feather.min.js"></script>
-	
-		<script src="https://blog.sorgdream.com/js/main.js"></script>
+
 </head>
 
 <body>
-	<div class="container wrapper">
-		<div class="header">
-	
-		<div class="avatar">
-			<a href="https://blog.sorgdream.com/">
-				<img src="/avatar.jpg" alt="sorgdream&#39;s blog" />
-			</a>
-		</div>
-	
-	<h1 class="site-title"><a href="https://blog.sorgdream.com/">sorgdream&#39;s blog</a></h1>
-	<div class="site-description"><p>逆水行舟，不进则退</p><nav class="nav social">
-			<ul class="flat"><li><a href="https://gitlab.com/croyoux" title="croyoux"><i data-feather="gitlab"></i></a></li><li><a href="mailto:i@sorgdream.com" title="i@sorgdream.com"><i data-feather="mail"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
-		</nav>
-	</div>
-
-	<nav class="nav">
-		<ul class="flat">
-			
-			<li>
-				<a href="/posts">Archive</a>
-			</li>
-			
-			<li>
-				<a href="/tags">Tags</a>
-			</li>
-			
-			<li>
-				<a href="/friends">Friends</a>
-			</li>
-			
-			<li>
-				<a href="/index.xml">RSS Feed</a>
-			</li>
-			
-			<li>
-				<a href="/about">About</a>
-			</li>
-			
-		</ul>
-	</nav>
-</div>
+    <header>
+        <h1><a href="/">croyoux&#39;s blog</a></h1>
+<style>
+    h1 a {
+        color: white;
+    }
+</style>
 
 
-		<div class="post">
-			<div class="post-header">
-				
-					<div class="meta">
-						<div class="date">
-							<span class="day">22</span>
-							<span class="rest">Jan 2024</span>
-						</div>
-					</div>
-				
-				<div class="matter">
-					<h1 class="title">Frp自建内网穿透</h1>
-				</div>
-			</div>
-					
-			<div class="markdown">
-				<p>这几天一直在折腾内网穿透的事，原因很简单，服务器的ROM不够大，又没钱升级配置，又拍云的免费OSS不备案无法绑定域名，免费的内网穿透速率太小了，更别提还有流量限制</p>
+  <nav>
+    <ul>
+    <li>
+      <a href="/tags">Tags</a>
+    </li>
+    <li>
+      <a href="/friends">Friends</a>
+    </li>
+    <li>
+      <a href="/index.xml">RSS Feed</a>
+    </li>
+    <li>
+      <a href="/about">About</a>
+    </li>
+    </ul>
+  </nav>
+
+<style>
+    header ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header li {
+
+        flex: 1;
+    }
+
+    @media (max-width: 600px) {
+        header ul {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        header li {
+            flex: 1 0 50%;
+            width: 50%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    }
+</style>
+    </header>
+    <main>
+        
+<div class="post">
+    <h1>Frp自建内网穿透</h1>
+
+    
+    
+    <time datetime="2024-01-22T18:20:30&#43;00:00">January 22, 2024</time>
+
+    <p>这几天一直在折腾内网穿透的事，原因很简单，服务器的ROM不够大，又没钱升级配置，又拍云的免费OSS不备案无法绑定域名，免费的内网穿透速率太小了，更别提还有流量限制</p>
 <p>想了想貌似只能自己建一个了，刚好手里有吃灰的Orangepi Zeor3，买的时候配了张128G的TF卡，虽然速度一般，但对于我来说是绰绰有余了</p>
 <h2 id="frp">frp</h2>
 <p>提到内网穿透，想到的肯定是大名顶顶的<strong>frp</strong>，目前在Github上已有76.3K starred</p>
@@ -149,52 +102,52 @@ frp 提到内网穿透，想到的肯定是大名顶顶的frp，目前在Github�
 <li>(如果尚未安装)使用<code>apt install systemd </code>安装，其他发行版使用其包管理器即可</li>
 <li>编辑<code>/etc/systemd/system/frps.service</code>创建frp服务配置，写入以下内容</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-service" data-lang="service"><span style="display:flex;"><span><span style="color:#c678dd">[Unit]</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># 服务名称，可自定义</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">Description </span><span style="color:#56b6c2">=</span><span style="color:#98c379"> frp server</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">After </span><span style="color:#56b6c2">=</span><span style="color:#98c379"> network.target syslog.target</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">Wants </span><span style="color:#56b6c2">=</span><span style="color:#98c379"> network.target</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">[Service]</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">Type </span><span style="color:#56b6c2">=</span><span style="color:#98c379"> simple</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># 启动frps的命令，需修改为您的frps的安装路径</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">ExecStart </span><span style="color:#56b6c2">=</span><span style="color:#98c379"> /path/to/frps -c /path/to/frps.toml</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">[Install]</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">WantedBy </span><span style="color:#56b6c2">=</span><span style="color:#98c379"> multi-user.target</span>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-service" data-lang="service"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#ff6ac1">[Unit]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#78787e"># 服务名称，可自定义</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#57c7ff">Description </span><span style="color:#ff6ac1">=</span><span style="color:#5af78e"> frp server</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#57c7ff">After </span><span style="color:#ff6ac1">=</span><span style="color:#5af78e"> network.target syslog.target</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#57c7ff">Wants </span><span style="color:#ff6ac1">=</span><span style="color:#5af78e"> network.target</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#ff6ac1">[Service]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#57c7ff">Type </span><span style="color:#ff6ac1">=</span><span style="color:#5af78e"> simple</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#78787e"># 启动frps的命令，需修改为您的frps的安装路径</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#57c7ff">ExecStart </span><span style="color:#ff6ac1">=</span><span style="color:#5af78e"> /path/to/frps -c /path/to/frps.toml</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span><span style="color:#ff6ac1">[Install]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#57c7ff">WantedBy </span><span style="color:#ff6ac1">=</span><span style="color:#5af78e"> multi-user.target</span>
 </span></span></code></pre></div><p>3.管理命令</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># 启动frp</span>
-</span></span><span style="display:flex;"><span>sudo systemctl start frps
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># 停止frp</span>
-</span></span><span style="display:flex;"><span>sudo systemctl stop frps
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># 重启frp</span>
-</span></span><span style="display:flex;"><span>sudo systemctl restart frps
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># 查看frp状态</span>
-</span></span><span style="display:flex;"><span>sudo systemctl status frps
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># 开机自启动</span>
-</span></span><span style="display:flex;"><span>sudo systemctl <span style="color:#e5c07b">enable</span> frps
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#78787e"># 启动frp</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>sudo systemctl start frps
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#78787e"># 停止frp</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>sudo systemctl stop frps
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#78787e"># 重启frp</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>sudo systemctl restart frps
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#78787e"># 查看frp状态</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>sudo systemctl status frps
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#78787e"># 开机自启动</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>sudo systemctl <span style="color:#ff5c57">enable</span> frps
 </span></span></code></pre></div><p>之后的frpc也是大同小异，只需要更改名字和位置即可</p>
 <h3 id="配置">配置</h3>
 <p>重点来了，frp有两个配置，一个<code>frps.toml</code>用于服务端，一个<code>frpc.toml</code>用于客户端</p>
 <ol>
 <li>配置frps.toml</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#e06c75">bindPort</span> = <span style="color:#d19a66">7000</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">vhostHTTPPort</span> = <span style="color:#d19a66">7890</span>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>bindPort = <span style="color:#ff9f43">7000</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>vhostHTTPPort = <span style="color:#ff9f43">7890</span>
 </span></span></code></pre></div><p><code>bindPort</code>不用管，<code>vhostHTTPPort</code>为连接的端口，默认为8080,但端口被我的评论占用了，所以改成7890</p>
 <p>如像我这样，配置完后可以通过<code>http://www.yourdomain.com:7890</code>访问</p>
 <ol start="2">
 <li>配置frpc.toml</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#e06c75">serverAddr</span> = <span style="color:#98c379">&#34;x.x.x.x&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">serverPort</span> = <span style="color:#d19a66">7000</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>[[<span style="color:#e06c75">proxies</span>]]
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">name</span> = <span style="color:#98c379">&#34;image-hosting&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">type</span> = <span style="color:#98c379">&#34;http&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">localIP</span> = <span style="color:#98c379">&#34;192.168.xx.xxx&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">localPort</span> = <span style="color:#d19a66">7890</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">customDomains</span> = [<span style="color:#98c379">&#34;www.example.com&#34;</span>]
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>serverAddr = <span style="color:#5af78e">&#34;x.x.x.x&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>serverPort = <span style="color:#ff9f43">7000</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>[[proxies]]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>name = <span style="color:#5af78e">&#34;image-hosting&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>type = <span style="color:#5af78e">&#34;http&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>localIP = <span style="color:#5af78e">&#34;192.168.xx.xxx&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>localPort = <span style="color:#ff9f43">7890</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span>customDomains = [<span style="color:#5af78e">&#34;www.example.com&#34;</span>]
 </span></span></code></pre></div><p>serverAddr: 服务器IP</p>
 <p>name: 取一个好记的名字</p>
 <p>type: 因为要搭建网站所以选择http</p>
@@ -212,89 +165,89 @@ frp 提到内网穿透，想到的肯定是大名顶顶的frp，目前在Github�
 <li>在<code>etc/nginx/conf.d/</code>文件夹内添加配置文件，文件名随意，以<code>.conf</code>作为拓展名</li>
 <li>增添配置，以下为我的配置</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>server {
-</span></span><span style="display:flex;"><span>    listen 7890;
-</span></span><span style="display:flex;"><span>    server_name www.example.com;
-</span></span><span style="display:flex;"><span>    root /home/image-hosting;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    fancyindex on;            
-</span></span><span style="display:flex;"><span>    fancyindex_exact_size off; 
-</span></span><span style="display:flex;"><span>    fancyindex_localtime on; 
-</span></span><span style="display:flex;"><span>    fancyindex_name_length 255; 
-</span></span><span style="display:flex;"><span>    fancyindex_time_format &#34;%Y-%m-%d %H:%M:%S&#34;;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    location / {
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>server {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    listen 7890;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    server_name www.example.com;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    root /home/image-hosting;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    fancyindex on;            
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    fancyindex_exact_size off; 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    fancyindex_localtime on; 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    fancyindex_name_length 255; 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    fancyindex_time_format &#34;%Y-%m-%d %H:%M:%S&#34;;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    location / {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>}
 </span></span></code></pre></div><p>listen: 监听7890端口</p>
 <p>server_name: 绑定的域名</p>
 <p>root: 网站所在文件夹</p>
 <p>以下配置开启文件引索，若无需求可以忽略</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> fancyindex on;            
-</span></span><span style="display:flex;"><span>    fancyindex_exact_size on; 
-</span></span><span style="display:flex;"><span>    fancyindex_localtime on; 
-</span></span><span style="display:flex;"><span>    fancyindex_name_length 255; 
-</span></span><span style="display:flex;"><span>    fancyindex_time_format &#34;%Y-%m-%d %H:%M:%S&#34;;
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span> fancyindex on;            
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    fancyindex_exact_size on; 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    fancyindex_localtime on; 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>    fancyindex_name_length 255; 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    fancyindex_time_format &#34;%Y-%m-%d %H:%M:%S&#34;;
 </span></span></code></pre></div><p>再一次尝试访问<code>www.example.com:7890</code>查看是否正常显示</p>
 <h4 id="去端口访问">去端口访问</h4>
 <p>整天带端口访问太丑了，可以使用nginx的反向代理功能解决，原理就是在服务器上套层nginx，将<code>www.example.com</code>反向代理至<code>www.example.com:7890</code></p>
 <p>以下是我的配置</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>server {
-</span></span><span style="display:flex;"><span>    listen 80;
-</span></span><span style="display:flex;"><span>    server_name www.example.com; # 设置的域名
-</span></span><span style="display:flex;"><span>    location / {
-</span></span><span style="display:flex;"><span>             proxy_pass  http://www.example.com:7890; # 反向代理至8080端口
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>server {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    listen 80;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    server_name www.example.com; # 设置的域名
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>    location / {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>             proxy_pass  http://www.example.com:7890; # 反向代理至8080端口
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>}
 </span></span></code></pre></div><p>配置完尝试使用<code>www.example.com</code>访问</p>
 <h3 id="https">HTTPS</h3>
 <p>虽然现在已经可以较为优雅地访问了，但因为缺少ssl证书，每次访问都给我警告</p>
 <p>frp支持为本地 HTTP 服务启用 HTTPS，但需要自行下载证书到内网机器，而且无法使用像certbot这样的工具，所以我选择在服务器的Nginx配置证书</p>
 <p>关于如何获取证书，我的<a href="https://blog.inuya.ltd/posts/winter/">上上篇文章</a>已经讲的很清楚了，下面是我的配置</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>server {
-</span></span><span style="display:flex;"><span>    listen 80;
-</span></span><span style="display:flex;"><span>    server_name img.inuya.ltd; # 设置的域名
-</span></span><span style="display:flex;"><span>    location / {
-</span></span><span style="display:flex;"><span>             proxy_pass  http://img.inuya.ltd:7890; # 反向代理至7890端口
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>server {
-</span></span><span style="display:flex;"><span>    listen 443;
-</span></span><span style="display:flex;"><span>    server_name img.inuya.ltd;
-</span></span><span style="display:flex;"><span>    ssl_certificate /etc/letsencrypt/live/img.inuya.ltd/fullchain.pem;  # 配置证书
-</span></span><span style="display:flex;"><span>    ssl_certificate_key /etc/letsencrypt/live/img.inuya.ltd/privkey.pem;
-</span></span><span style="display:flex;"><span>    ssl_session_timeout 5m;
-</span></span><span style="display:flex;"><span>    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
-</span></span><span style="display:flex;"><span>    # 表示使用的加密套件的类型。
-</span></span><span style="display:flex;"><span>    ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # 表示使用的TLS协议的类型。
-</span></span><span style="display:flex;"><span>    ssl_prefer_server_ciphers on;
-</span></span><span style="display:flex;"><span>    location / {
-</span></span><span style="display:flex;"><span>            proxy_pass http://img.inuya.ltd:7890;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>server {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    listen 80;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    server_name img.inuya.ltd; # 设置的域名
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    location / {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>             proxy_pass  http://img.inuya.ltd:7890; # 反向代理至7890端口
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>server {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    listen 443;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>    server_name img.inuya.ltd;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    ssl_certificate /etc/letsencrypt/live/img.inuya.ltd/fullchain.pem;  # 配置证书
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    ssl_certificate_key /etc/letsencrypt/live/img.inuya.ltd/privkey.pem;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>    ssl_session_timeout 5m;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>    # 表示使用的加密套件的类型。
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>    ssl_protocols TLSv1 TLSv1.1 TLSv1.2; # 表示使用的TLS协议的类型。
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>    ssl_prefer_server_ciphers on;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>    location / {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>            proxy_pass http://img.inuya.ltd:7890;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>}
 </span></span></code></pre></div><h2 id="图床">图床</h2>
 <p>搞定了内网穿透，但怎么把图片显示出来呢，1P面板有个图床的docker镜像，用了下感觉很一般，不如自己建一个</p>
 <p>因为没学过前端，所以只能边学边建，写出来的东西也是漏洞百出，但最起码能用了</p>
 <h3 id="文件引索">文件引索</h3>
 <p>原本是想写一个文件引索，看了几篇文章都是无从下手，偶然看到一篇关闭<code>Apache</code>默认文件引索功能的文章，想到Nginx是否也有这个功能，找了一下还真有，只不过需要手动开启</p>
 <p>在内网机器的nginx配置中添加以下内容</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>server {
-</span></span><span style="display:flex;"><span>    listen  80;
-</span></span><span style="display:flex;"><span>    server_name 192.168.31.112;
-</span></span><span style="display:flex;"><span>    root /home/image-hosting;
-</span></span><span style="display:flex;"><span>    autoindex on;    	#启用或禁用目录列表输出
-</span></span><span style="display:flex;"><span>    autoindex_format html； #设置目录列表的格式
-</span></span><span style="display:flex;"><span>    autoindex_localtime on;  #指定目录列表中的时间是否应以本地时区或 UTC 输出
-</span></span><span style="display:flex;"><span>    autoindex_exact_size off;  #是否应在目录列表中输出确切的文件大小
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>server {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    listen  80;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    server_name 192.168.31.112;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>    root /home/image-hosting;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    autoindex on;    	#启用或禁用目录列表输出
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>    autoindex_format html； #设置目录列表的格式
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>    autoindex_localtime on;  #指定目录列表中的时间是否应以本地时区或 UTC 输出
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>    autoindex_exact_size off;  #是否应在目录列表中输出确切的文件大小
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9</span><span>}
 </span></span></code></pre></div><p>输入一个网站目录，看是否能浏览文件</p>
 <h3 id="嵌入引索">嵌入引索</h3>
 <p>因索有了，但我不想手动一个个翻图片，于是将它嵌入到了我的主页</p>
 <p>在代码中添加<code>&lt;iframe&gt;</code>标签即可嵌入一个网页，因为我想显示<code>Images</code>目录的引索，所以src中填入了<code>images/</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#e06c75">div</span> <span style="color:#e06c75">class</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;div-pic&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>    &lt;<span style="color:#e06c75">iframe</span> <span style="color:#e06c75">src</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;images/&#34;</span> <span style="color:#e06c75">width</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;100%&#34;</span> <span style="color:#e06c75">height</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;800px&#34;</span> <span style="color:#e06c75">scrolling</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;auto&#34;</span> <span style="color:#e06c75">framespacing</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;0&#34;</span> <span style="color:#e06c75">allowfullscreen</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;true&#34;</span>&gt; &lt;/<span style="color:#e06c75">iframe</span>&gt;   
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#e06c75">div</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>&lt;<span style="color:#ff6ac1">div</span> <span style="color:#57c7ff">class</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;div-pic&#34;</span>&gt;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    &lt;<span style="color:#ff6ac1">iframe</span> <span style="color:#57c7ff">src</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;images/&#34;</span> <span style="color:#57c7ff">width</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;100%&#34;</span> <span style="color:#57c7ff">height</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;800px&#34;</span> <span style="color:#57c7ff">scrolling</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;auto&#34;</span> <span style="color:#57c7ff">framespacing</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;0&#34;</span> <span style="color:#57c7ff">allowfullscreen</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;true&#34;</span>&gt; &lt;/<span style="color:#ff6ac1">iframe</span>&gt;   
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>&lt;/<span style="color:#ff6ac1">div</span>&gt;
 </span></span></code></pre></div><p>如果想要更换嵌入的网站，只需要修改<code>src=&quot;&quot;</code> 里的内容为目标网址即可</p>
 <h4 id="美化引索">美化引索</h4>
 <p>但这样还有一个问题，默认的引索在网站的背景是透明的，导致看不清文件名，CSS添加的背景太亮了，又偶然看见一篇用第三方模块来美化的文章</p>
@@ -303,20 +256,20 @@ frp 提到内网穿透，想到的肯定是大名顶顶的frp，目前在Github�
 <li><code>apt install libnginx-mod-http-fancyindex</code>安装模块</li>
 <li>修改/创建<code>/etc/nginx/conf.d/</code>下的配置，添加以下内容以开启引索</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>server {
-</span></span><span style="display:flex;"><span>    listen 80;
-</span></span><span style="display:flex;"><span>    server_name 192.168.31.112;
-</span></span><span style="display:flex;"><span>    root /home/image-hosting;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    fancyindex on;            
-</span></span><span style="display:flex;"><span>    fancyindex_exact_size off; 
-</span></span><span style="display:flex;"><span>    fancyindex_localtime on; 
-</span></span><span style="display:flex;"><span>    fancyindex_name_length 255; 
-</span></span><span style="display:flex;"><span>    fancyindex_time_format &#34;%Y-%m-%d %H:%M:%S&#34;;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    location / {
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>server {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>    listen 80;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    server_name 192.168.31.112;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>    root /home/image-hosting;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>    fancyindex on;            
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>    fancyindex_exact_size off; 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>    fancyindex_localtime on; 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    fancyindex_name_length 255; 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>    fancyindex_time_format &#34;%Y-%m-%d %H:%M:%S&#34;;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>    location / {
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>    }
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>}
 </span></span></code></pre></div><p>返回网站，刷新即可看到新样式</p>
 <p>fancyindex还有许多主题可选，如<a href="https://github.com/Naereen/Nginx-Fancyindex-Theme">Nginx-Fancyindex-Theme</a>和<a href="https://github.com/alehaa/nginx-fancyindex-flat-theme">nginx-fancyindex-flat-theme</a></p>
 <p>也可以用<code>fancyindex</code>加<code>theme</code>关键字在Guthub搜索其他主题</p>
@@ -329,31 +282,22 @@ frp 提到内网穿透，想到的肯定是大名顶顶的frp，目前在Github�
 <li><a href="https://gofrp.org/zh-cn/">frp</a></li>
 </ul>
 
-			</div>
+    
+  <div>
+    <div>Tags:</div>
+    <ul>
+        <li><a href="/tags/%E5%9B%BE%E5%BA%8A/">图床</a></li>
+        <li><a href="/tags/linux/">Linux</a></li>
+    </ul>
+  </div>
 
-			<div class="tags">
-				
-					
-						<ul class="flat">
-							
-							<li><a href="/tags/%E5%9B%BE%E5%BA%8A">图床</a></li>
-							
-							<li><a href="/tags/linux">Linux</a></li>
-							
-						</ul>
-					
-				
-			</div></div>
-	</div>
-	<div class="footer wrapper">
-	<nav class="nav">
-		<div>2025  sorgDream CC BY-NC-SA 4.0 |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
-	</nav>
 </div>
 
+    </main>
+    <footer>
+        <p>FROM 2023 TO 2025 &&lt;|>& Croyoux Lite</p>
 
-  
-
-<script>feather.replace()</script>
+    </footer>
 </body>
+
 </html>

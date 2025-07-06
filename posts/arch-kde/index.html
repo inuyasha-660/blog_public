@@ -1,101 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us" dir="ltr">
+
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Arch下的Kde配置 - sorgdream&#39;s blog</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	
-  <meta itemprop="name" content="Arch下的Kde配置">
-  <meta itemprop="description" content="重装6次的主流桌面体验">
-  <meta itemprop="datePublished" content="2024-01-14T09:21:23+00:00">
-  <meta itemprop="dateModified" content="2024-01-14T09:21:23+00:00">
-  <meta itemprop="wordCount" content="1007">
-  <meta itemprop="keywords" content="Linux,Kernel"><meta property="og:url" content="https://blog.sorgdream.com/posts/arch-kde/">
-  <meta property="og:site_name" content="sorgdream&#39;s blog">
-  <meta property="og:title" content="Arch下的Kde配置">
-  <meta property="og:description" content="重装6次的主流桌面体验">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-01-14T09:21:23+00:00">
-    <meta property="article:modified_time" content="2024-01-14T09:21:23+00:00">
-    <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="Kernel">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arch下的Kde配置 | croyoux&#39;s blog</title>
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Arch下的Kde配置">
-  <meta name="twitter:description" content="重装6次的主流桌面体验">
-<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" media="screen" href="https://blog.sorgdream.com/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://blog.sorgdream.com/css/main.css" />
+      <link rel="stylesheet" href="/css/main.min.898ba31517d006a90a71e1fe47713928df9590df0d1c5aa1848183d930492ab6.css" integrity="sha256-iYujFRfQBqkKceH&#43;R3E5KN&#43;VkN8NHFqhhIGD2TBJKrY=" crossorigin="anonymous">
 
-        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://blog.sorgdream.com/css/dark.css" />
 
-	<script src="https://blog.sorgdream.com/js/feather.min.js"></script>
-	
-		<script src="https://blog.sorgdream.com/js/main.js"></script>
+
 </head>
 
 <body>
-	<div class="container wrapper">
-		<div class="header">
-	
-		<div class="avatar">
-			<a href="https://blog.sorgdream.com/">
-				<img src="/avatar.jpg" alt="sorgdream&#39;s blog" />
-			</a>
-		</div>
-	
-	<h1 class="site-title"><a href="https://blog.sorgdream.com/">sorgdream&#39;s blog</a></h1>
-	<div class="site-description"><p>逆水行舟，不进则退</p><nav class="nav social">
-			<ul class="flat"><li><a href="https://gitlab.com/croyoux" title="croyoux"><i data-feather="gitlab"></i></a></li><li><a href="mailto:i@sorgdream.com" title="i@sorgdream.com"><i data-feather="mail"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
-		</nav>
-	</div>
-
-	<nav class="nav">
-		<ul class="flat">
-			
-			<li>
-				<a href="/posts">Archive</a>
-			</li>
-			
-			<li>
-				<a href="/tags">Tags</a>
-			</li>
-			
-			<li>
-				<a href="/friends">Friends</a>
-			</li>
-			
-			<li>
-				<a href="/index.xml">RSS Feed</a>
-			</li>
-			
-			<li>
-				<a href="/about">About</a>
-			</li>
-			
-		</ul>
-	</nav>
-</div>
+    <header>
+        <h1><a href="/">croyoux&#39;s blog</a></h1>
+<style>
+    h1 a {
+        color: white;
+    }
+</style>
 
 
-		<div class="post">
-			<div class="post-header">
-				
-					<div class="meta">
-						<div class="date">
-							<span class="day">14</span>
-							<span class="rest">Jan 2024</span>
-						</div>
-					</div>
-				
-				<div class="matter">
-					<h1 class="title">Arch下的Kde配置</h1>
-				</div>
-			</div>
-					
-			<div class="markdown">
-				<p>2024年的第一篇文章，祝大家新年快乐(虽然有点迟了)</p>
+  <nav>
+    <ul>
+    <li>
+      <a href="/tags">Tags</a>
+    </li>
+    <li>
+      <a href="/friends">Friends</a>
+    </li>
+    <li>
+      <a href="/index.xml">RSS Feed</a>
+    </li>
+    <li>
+      <a href="/about">About</a>
+    </li>
+    </ul>
+  </nav>
+
+<style>
+    header ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header li {
+
+        flex: 1;
+    }
+
+    @media (max-width: 600px) {
+        header ul {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        header li {
+            flex: 1 0 50%;
+            width: 50%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    }
+</style>
+    </header>
+    <main>
+        
+<div class="post">
+    <h1>Arch下的Kde配置</h1>
+
+    
+    
+    <time datetime="2024-01-14T09:21:23&#43;00:00">January 14, 2024</time>
+
+    <p>2024年的第一篇文章，祝大家新年快乐(虽然有点迟了)</p>
 <p>这段时间重装了6次Arch，1次Debian Testing，几乎将主流桌面体验完了，血与泪的教训，wayland目前还不成熟，高分屏还得老老实实用x11</p>
 <h2 id="起因">起因</h2>
 <p>逛B站时偶然看到了有人发<a href="https://www.bilibili.com/read/cv22707313/">Hyprland的配置</a>，再看我的Kde瞬间就不香了</p>
@@ -111,62 +94,62 @@
 <ol>
 <li>首先安装Wayland</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S xorg-xwayland qt5-wayland qt6-wayland glfw-wayland
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>pacman -S xorg-xwayland qt5-wayland qt6-wayland glfw-wayland
 </span></span></code></pre></div><ol start="2">
 <li>安装Hyprland</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>paru -S hyprland-bin
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>paru -S hyprland-bin
 </span></span></code></pre></div><ol start="3">
 <li>复制配置文件</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir -pv ~/.config/hypr
-</span></span><span style="display:flex;"><span>sudo cp /usr/share/hyprland/hyprland.conf ~/.config/hypr/
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>mkdir -pv ~/.config/hypr
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>sudo cp /usr/share/hyprland/hyprland.conf ~/.config/hypr/
 </span></span></code></pre></div><ol start="4">
 <li>Hyprland启动</li>
 </ol>
 <p>通过编辑<code>~/.bash_profile</code>启动(不使用显示管理器)</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#7f848e"># 启动 wayland 桌面前设置一些环境变量</span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> set_wayland_env
-</span></span><span style="display:flex;"><span><span style="color:#56b6c2">{</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">cd</span> <span style="color:#98c379">${</span><span style="color:#e06c75">HOME</span><span style="color:#98c379">}</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># 设置语言环境为中文</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">export</span> <span style="color:#e06c75">LANG</span><span style="color:#56b6c2">=</span>zh_CN.UTF-8
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># 解决QT程序缩放问题</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">export</span> <span style="color:#e06c75">QT_AUTO_SCREEN_SCALE_FACTOR</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># QT使用wayland和gtk</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">export</span> <span style="color:#e06c75">QT_QPA_PLATFORM</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;wayland;xcb&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">export</span> <span style="color:#e06c75">QT_WAYLAND_DISABLE_WINDOWDECORATION</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># 使用qt5ct软件配置QT程序外观</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">export</span> <span style="color:#e06c75">QT_QPA_PLATFORMTHEME</span><span style="color:#56b6c2">=</span>qt5ct
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># 一些游戏使用wayland</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">export</span> <span style="color:#e06c75">SDL_VIDEODRIVER</span><span style="color:#56b6c2">=</span>wayland
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># 解决java程序启动黑屏错误</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">export</span> <span style="color:#e06c75">_JAVA_AWT_WM_NONEREPARENTING</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">1</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># GTK后端为 wayland和x11,优先wayland</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">export</span> <span style="color:#e06c75">GDK_BACKEND</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;wayland,x11&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#56b6c2">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># 命令行输入这个命令启动hyprland,可以自定义</span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">function</span> start_hyprland
-</span></span><span style="display:flex;"><span><span style="color:#56b6c2">{</span>
-</span></span><span style="display:flex;"><span>	set_wayland_env
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">export</span> <span style="color:#e06c75">XDG_SESSION_TYPE</span><span style="color:#56b6c2">=</span>wayland
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">export</span> <span style="color:#e06c75">XDG_SESSION_DESKTOP</span><span style="color:#56b6c2">=</span>Hyprland
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">export</span> <span style="color:#e06c75">XDG_CURRENT_DESKTOP</span><span style="color:#56b6c2">=</span>Hyprland
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># 启动 Hyprland程序</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">exec</span> Hyprland
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#56b6c2">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#78787e"># 启动 wayland 桌面前设置一些环境变量</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#ff6ac1">function</span> set_wayland_env
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#ff6ac1">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>	<span style="color:#ff5c57">cd</span> <span style="color:#5af78e">${</span><span style="color:#ff5c57">HOME</span><span style="color:#5af78e">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>	<span style="color:#78787e"># 设置语言环境为中文</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>	<span style="color:#ff5c57">export</span> <span style="color:#ff5c57">LANG</span><span style="color:#ff6ac1">=</span>zh_CN.UTF-8
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>	<span style="color:#78787e"># 解决QT程序缩放问题</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>	<span style="color:#ff5c57">export</span> <span style="color:#ff5c57">QT_AUTO_SCREEN_SCALE_FACTOR</span><span style="color:#ff6ac1">=</span><span style="color:#ff9f43">1</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>	<span style="color:#78787e"># QT使用wayland和gtk</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>	<span style="color:#ff5c57">export</span> <span style="color:#ff5c57">QT_QPA_PLATFORM</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;wayland;xcb&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>	<span style="color:#ff5c57">export</span> <span style="color:#ff5c57">QT_WAYLAND_DISABLE_WINDOWDECORATION</span><span style="color:#ff6ac1">=</span><span style="color:#ff9f43">1</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>	<span style="color:#78787e"># 使用qt5ct软件配置QT程序外观</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>	<span style="color:#ff5c57">export</span> <span style="color:#ff5c57">QT_QPA_PLATFORMTHEME</span><span style="color:#ff6ac1">=</span>qt5ct
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>	<span style="color:#78787e"># 一些游戏使用wayland</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>	<span style="color:#ff5c57">export</span> <span style="color:#ff5c57">SDL_VIDEODRIVER</span><span style="color:#ff6ac1">=</span>wayland
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>	<span style="color:#78787e"># 解决java程序启动黑屏错误</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>	<span style="color:#ff5c57">export</span> <span style="color:#ff5c57">_JAVA_AWT_WM_NONEREPARENTING</span><span style="color:#ff6ac1">=</span><span style="color:#ff9f43">1</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>	<span style="color:#78787e"># GTK后端为 wayland和x11,优先wayland</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>	<span style="color:#ff5c57">export</span> <span style="color:#ff5c57">GDK_BACKEND</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;wayland,x11&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span><span style="color:#ff6ac1">}</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span><span style="color:#78787e"># 命令行输入这个命令启动hyprland,可以自定义</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span><span style="color:#ff6ac1">function</span> start_hyprland
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span><span style="color:#ff6ac1">{</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>	set_wayland_env
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>	<span style="color:#ff5c57">export</span> <span style="color:#ff5c57">XDG_SESSION_TYPE</span><span style="color:#ff6ac1">=</span>wayland
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>	<span style="color:#ff5c57">export</span> <span style="color:#ff5c57">XDG_SESSION_DESKTOP</span><span style="color:#ff6ac1">=</span>Hyprland
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>	<span style="color:#ff5c57">export</span> <span style="color:#ff5c57">XDG_CURRENT_DESKTOP</span><span style="color:#ff6ac1">=</span>Hyprland
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>	<span style="color:#78787e"># 启动 Hyprland程序</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>	<span style="color:#ff5c57">exec</span> Hyprland
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span><span style="color:#ff6ac1">}</span>
 </span></span></code></pre></div><p>重启或直接<code>source ~/.bash_profile</code>使配置生效，输入<code>start_hyprland</code>启动</p>
 <h3 id="应用安装">应用安装</h3>
 <p>刚进入桌面，你会发现什么也没有，先装个终端和中文字体</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S kitty wqy-zenhei
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>sudo pacman -S kitty wqy-zenhei
 </span></span></code></pre></div><p>使用快捷键<code>Super+Q</code>即可启动(Super键默认为WIN)</p>
 <p>貌似一切都很完美，让我们装个QQ试逝</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>paru -S linuxqq
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>paru -S linuxqq
 </span></span></code></pre></div><p>打开后你会发现字体变得很模糊，不止qq,其他程序在wayland缩放下的显示都不太好</p>
 <h2 id="gnome">Gnome</h2>
 <blockquote>
@@ -176,7 +159,7 @@
 <p>GNOME是一个完全由自由软件组成的桌面环境。它的目标操作系统是Linux，但是大部分的BSD系统亦支持GNOME。</p>
 </blockquote>
 <p>因为Hyprland的字体问题，我回到了一开始用的gnome;但因为使用wayland的原因，qq下的字体还是模糊，而且缩放有问题，200%会使字体和窗口过大，100%字又太小</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gsettings <span style="color:#e5c07b">set</span> org.gnome.mutter experimental-features <span style="color:#98c379">&#34;[&#39;scale-monitor-framebuffer&#39;]&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>gsettings <span style="color:#ff5c57">set</span> org.gnome.mutter experimental-features <span style="color:#5af78e">&#34;[&#39;scale-monitor-framebuffer&#39;]&#34;</span>
 </span></span></code></pre></div><p>使用此命令开启分数缩放</p>
 <p>缩放是解决了，但字体的问题依旧，目前没找到完美的解决方案，只能用<code>Tweaks</code>工具调整字体大小</p>
 <h2 id="cinnamon">Cinnamon</h2>
@@ -212,7 +195,7 @@
 <p>终端走代理</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#e5c07b">export</span> <span style="color:#e06c75">https_proxy</span><span style="color:#56b6c2">=</span>http://127.0.0.1:7890 <span style="color:#e06c75">http_proxy</span><span style="color:#56b6c2">=</span>http://127.0.0.1:7890 <span style="color:#e06c75">all_proxy</span><span style="color:#56b6c2">=</span>socks5://127.0.0.1:7891
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff5c57">export</span> <span style="color:#ff5c57">https_proxy</span><span style="color:#ff6ac1">=</span>http://127.0.0.1:7890 <span style="color:#ff5c57">http_proxy</span><span style="color:#ff6ac1">=</span>http://127.0.0.1:7890 <span style="color:#ff5c57">all_proxy</span><span style="color:#ff6ac1">=</span>socks5://127.0.0.1:7891
 </span></span></code></pre></div><p><code>7890</code>/<code>7891</code>为端口号，<code>127.0.0.1</code>为IP</p>
 <h3 id="常用应用">常用应用</h3>
 <h4 id="1-neovim">1. neovim</h4>
@@ -234,9 +217,9 @@
 <li>1.1.2 安装</li>
 </ol>
 <p>克隆配置</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/LazyVim/starter ~/.config/nvim
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>git clone https://github.com/LazyVim/starter ~/.config/nvim
 </span></span></code></pre></div><p>nvim启动!</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>nvim
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>nvim
 </span></span></code></pre></div><h5 id="12-nvim下的复制粘贴">1.2 nvim下的复制粘贴</h5>
 <p><code>sudo pacman -S xclip</code>安装xclip后，使用<code>v</code>选中要复制的内容，<code>y</code>复制，<code>p</code>粘贴，<code>d</code>剪切</p>
 <h4 id="2-neofetch">2. neofetch</h4>
@@ -255,7 +238,7 @@
 </ol>
 <h5 id="31-无法播放">3.1 无法播放</h5>
 <p>如果你很幸运，能直接播放，可以忽略这一步</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S pulseaudio-alsa libavtp
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>sudo pacman -S pulseaudio-alsa libavtp
 </span></span></code></pre></div><p>安装缺少的两个包就可以播放了</p>
 <h5 id="32-快捷键">3.2 快捷键</h5>
 <table>
@@ -303,119 +286,119 @@
 <p>更多快捷键请看<a href="https://github.com/go-musicfox/go-musicfox">README</a></p>
 <h3 id="bash">Bash</h3>
 <p>这次安装我离开了Zsh，重新回到了Bash的怀抱，但默认的Prompt太丑了，只显示最后一级路径，于是<del>抄</del>参考<a href="https://gitweb.gentoo.org/repo/gentoo.git/tree/app-shells/bash/files/bashrc/">Gentoo</a>的<code>.bashrc</code>，重新配置了下</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-.bashrc" data-lang=".bashrc"><span style="display:flex;"><span><span style="color:#7f848e"># /etc/bash/bashrc</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e">#</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># This file is sourced by all *interactive* bash shells on startup,</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># including some apparently interactive shells such as scp and rcp</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># that can&#39;t tolerate any output.  So make sure this doesn&#39;t display</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># anything or bad things will happen!</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Test for an interactive shell.  There is no need to set anything</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># past this point for scp and rcp, and it&#39;s important to refrain from</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># outputting anything in those cases.</span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">if</span> <span style="color:#56b6c2">[[</span> <span style="color:#e06c75">$-</span> !<span style="color:#56b6c2">=</span> *i* <span style="color:#56b6c2">]]</span>; <span style="color:#c678dd">then</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># Shell is non-interactive.  Be done now!</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">return</span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">fi</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Bash won&#39;t get SIGWINCH if another process is in the foreground.</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Enable checkwinsize so that bash will check the terminal size when</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># it regains control.  #65623</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)</span>
-</span></span><span style="display:flex;"><span><span style="color:#e5c07b">shopt</span> -s checkwinsize
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Disable completion when the input buffer is empty.  i.e. Hitting tab</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># and waiting a long time for bash to expand all of $PATH.</span>
-</span></span><span style="display:flex;"><span><span style="color:#e5c07b">shopt</span> -s no_empty_cmd_completion
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Enable history appending instead of overwriting when exiting.  #139609</span>
-</span></span><span style="display:flex;"><span><span style="color:#e5c07b">shopt</span> -s histappend
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Save each command to the history file as it&#39;s executed.  #517342</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># This does mean sessions get interleaved when reading later on, but this</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># way the history is always up to date.  History is not synced across live</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># sessions though; that is what `history -n` does.</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Disabled by default due to concerns related to system recovery when $HOME</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># is under duress, or lives somewhere flaky (like NFS).  Constantly syncing</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># the history will halt the shell prompt until it&#39;s finished.</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e">#PROMPT_COMMAND=&#39;history -a&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Change the window title of X terminals</span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">case</span> <span style="color:#98c379">${</span><span style="color:#e06c75">TERM</span><span style="color:#98c379">}</span> in
-</span></span><span style="display:flex;"><span><span style="color:#56b6c2">[</span>aEkx<span style="color:#56b6c2">]</span>term* | rxvt* | gnome* | konsole* | interix | tmux*<span style="color:#56b6c2">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">PS1</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;\[\033]0;\u@\h:\w\007\]&#39;</span>
-</span></span><span style="display:flex;"><span>	;;
-</span></span><span style="display:flex;"><span>screen*<span style="color:#56b6c2">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">PS1</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;\[\033_\u@\h:\w\033\\\]&#39;</span>
-</span></span><span style="display:flex;"><span>	;;
-</span></span><span style="display:flex;"><span>*<span style="color:#56b6c2">)</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">unset</span> PS1
-</span></span><span style="display:flex;"><span>	;;
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">esac</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Set colorful PS1 only on colorful terminals.</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># dircolors --print-database uses its own built-in database</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># instead of using /etc/DIR_COLORS.  Try to use the external file</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># first to take advantage of user additions.</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># We run dircolors directly due to its changes in file syntax and</span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># terminal name patching.</span>
-</span></span><span style="display:flex;"><span><span style="color:#e06c75">use_color</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">false</span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">if</span> <span style="color:#e5c07b">type</span> -P dircolors &gt;/dev/null; <span style="color:#c678dd">then</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># Enable colors for ls, etc.  Prefer ~/.dir_colors #64489</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">LS_COLORS</span><span style="color:#56b6c2">=</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">if</span> <span style="color:#56b6c2">[[</span> -f ~/.dir_colors <span style="color:#56b6c2">]]</span>; <span style="color:#c678dd">then</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#e5c07b">eval</span> <span style="color:#98c379">&#34;</span><span style="color:#c678dd">$(</span>dircolors -b ~/.dir_colors<span style="color:#c678dd">)</span><span style="color:#98c379">&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">elif</span> <span style="color:#56b6c2">[[</span> -f /etc/DIR_COLORS <span style="color:#56b6c2">]]</span>; <span style="color:#c678dd">then</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#e5c07b">eval</span> <span style="color:#98c379">&#34;</span><span style="color:#c678dd">$(</span>dircolors -b /etc/DIR_COLORS<span style="color:#c678dd">)</span><span style="color:#98c379">&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">else</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#e5c07b">eval</span> <span style="color:#98c379">&#34;</span><span style="color:#c678dd">$(</span>dircolors -b<span style="color:#c678dd">)</span><span style="color:#98c379">&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">fi</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># Note: We always evaluate the LS_COLORS setting even when it&#39;s the</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># default.  If it isn&#39;t set, then `ls` will only colorize by default</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># based on file attributes and ignore extensions (even the compiled</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># in defaults of dircolors). #583814</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">if</span> <span style="color:#56b6c2">[[</span> -n <span style="color:#98c379">${</span><span style="color:#e06c75">LS_COLORS</span>:+set<span style="color:#98c379">}</span> <span style="color:#56b6c2">]]</span>; <span style="color:#c678dd">then</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">use_color</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">true</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">else</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#7f848e"># Delete it if it&#39;s empty as it&#39;s useless in that case.</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#e5c07b">unset</span> LS_COLORS
-</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">fi</span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">else</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># Some systems (e.g. BSD &amp; embedded) don&#39;t typically come with</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># dircolors so we need to hardcode some terminals in here.</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">case</span> <span style="color:#98c379">${</span><span style="color:#e06c75">TERM</span><span style="color:#98c379">}</span> in
-</span></span><span style="display:flex;"><span>	<span style="color:#56b6c2">[</span>aEkx<span style="color:#56b6c2">]</span>term* | rxvt* | gnome* | konsole* | screen | tmux | cons25 | *color<span style="color:#56b6c2">)</span> <span style="color:#e06c75">use_color</span><span style="color:#56b6c2">=</span><span style="color:#e5c07b">true</span> ;;
-</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">esac</span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">fi</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">if</span> <span style="color:#98c379">${</span><span style="color:#e06c75">use_color</span><span style="color:#98c379">}</span>; <span style="color:#c678dd">then</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">if</span> <span style="color:#56b6c2">[[</span> <span style="color:#98c379">${</span><span style="color:#e06c75">EUID</span><span style="color:#98c379">}</span> <span style="color:#56b6c2">==</span> <span style="color:#d19a66">0</span> <span style="color:#56b6c2">]]</span>; <span style="color:#c678dd">then</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">PS1</span><span style="color:#56b6c2">+=</span><span style="color:#98c379">&#39;\[\033[01;31m\]\h\[\033[01;34m\] \w \$\[\033[00m\] &#39;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">else</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#e06c75">PS1</span><span style="color:#56b6c2">+=</span><span style="color:#98c379">&#39;\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] &#39;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#c678dd">fi</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">#BSD#@export CLICOLOR=1</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">alias</span> <span style="color:#e06c75">ls</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;ls --color=auto&#39;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">alias</span> <span style="color:#e06c75">grep</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;grep --colour=auto&#39;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">alias</span> <span style="color:#e06c75">la</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;ls -A&#39;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">alias</span> <span style="color:#e06c75">ll</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;ls -alF&#39;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">alias</span> <span style="color:#e06c75">l</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;ls -CF&#39;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e5c07b">alias</span> <span style="color:#e06c75">n</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#39;neofetch&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">else</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#7f848e"># show root@ when we don&#39;t have colors</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#e06c75">PS1</span><span style="color:#56b6c2">+=</span><span style="color:#98c379">&#39;\u@\h \w \$ &#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">fi</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">for</span> sh in /etc/bash/bashrc.d/*; <span style="color:#c678dd">do</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#56b6c2">[[</span> -r <span style="color:#98c379">${</span><span style="color:#e06c75">sh</span><span style="color:#98c379">}</span> <span style="color:#56b6c2">]]</span> <span style="color:#56b6c2">&amp;&amp;</span> <span style="color:#e5c07b">source</span> <span style="color:#98c379">&#34;</span><span style="color:#98c379">${</span><span style="color:#e06c75">sh</span><span style="color:#98c379">}</span><span style="color:#98c379">&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#c678dd">done</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#7f848e"># Try to keep environment pollution down, EPA loves us.</span>
-</span></span><span style="display:flex;"><span>u
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-.bashrc" data-lang=".bashrc"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1</span><span><span style="color:#78787e"># /etc/bash/bashrc</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2</span><span><span style="color:#78787e">#</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3</span><span><span style="color:#78787e"># This file is sourced by all *interactive* bash shells on startup,</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4</span><span><span style="color:#78787e"># including some apparently interactive shells such as scp and rcp</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5</span><span><span style="color:#78787e"># that can&#39;t tolerate any output.  So make sure this doesn&#39;t display</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6</span><span><span style="color:#78787e"># anything or bad things will happen!</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8</span><span><span style="color:#78787e"># Test for an interactive shell.  There is no need to set anything</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9</span><span><span style="color:#78787e"># past this point for scp and rcp, and it&#39;s important to refrain from</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10</span><span><span style="color:#78787e"># outputting anything in those cases.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11</span><span><span style="color:#ff6ac1">if</span> <span style="color:#ff6ac1">[[</span> <span style="color:#ff5c57">$-</span> !<span style="color:#ff6ac1">=</span> *i* <span style="color:#ff6ac1">]]</span>; <span style="color:#ff6ac1">then</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12</span><span>	<span style="color:#78787e"># Shell is non-interactive.  Be done now!</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13</span><span>	<span style="color:#ff6ac1">return</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14</span><span><span style="color:#ff6ac1">fi</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16</span><span><span style="color:#78787e"># Bash won&#39;t get SIGWINCH if another process is in the foreground.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17</span><span><span style="color:#78787e"># Enable checkwinsize so that bash will check the terminal size when</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18</span><span><span style="color:#78787e"># it regains control.  #65623</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19</span><span><span style="color:#78787e"># http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20</span><span><span style="color:#ff5c57">shopt</span> -s checkwinsize
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22</span><span><span style="color:#78787e"># Disable completion when the input buffer is empty.  i.e. Hitting tab</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23</span><span><span style="color:#78787e"># and waiting a long time for bash to expand all of $PATH.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24</span><span><span style="color:#ff5c57">shopt</span> -s no_empty_cmd_completion
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26</span><span><span style="color:#78787e"># Enable history appending instead of overwriting when exiting.  #139609</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27</span><span><span style="color:#ff5c57">shopt</span> -s histappend
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28</span><span><span style="color:#78787e"># Save each command to the history file as it&#39;s executed.  #517342</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29</span><span><span style="color:#78787e"># This does mean sessions get interleaved when reading later on, but this</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30</span><span><span style="color:#78787e"># way the history is always up to date.  History is not synced across live</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31</span><span><span style="color:#78787e"># sessions though; that is what `history -n` does.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32</span><span><span style="color:#78787e"># Disabled by default due to concerns related to system recovery when $HOME</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33</span><span><span style="color:#78787e"># is under duress, or lives somewhere flaky (like NFS).  Constantly syncing</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34</span><span><span style="color:#78787e"># the history will halt the shell prompt until it&#39;s finished.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35</span><span><span style="color:#78787e">#PROMPT_COMMAND=&#39;history -a&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37</span><span><span style="color:#78787e"># Change the window title of X terminals</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38</span><span><span style="color:#ff6ac1">case</span> <span style="color:#5af78e">${</span><span style="color:#ff5c57">TERM</span><span style="color:#5af78e">}</span> in
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39</span><span><span style="color:#ff6ac1">[</span>aEkx<span style="color:#ff6ac1">]</span>term* | rxvt* | gnome* | konsole* | interix | tmux*<span style="color:#ff6ac1">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40</span><span>	<span style="color:#ff5c57">PS1</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#39;\[\033]0;\u@\h:\w\007\]&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41</span><span>	;;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42</span><span>screen*<span style="color:#ff6ac1">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43</span><span>	<span style="color:#ff5c57">PS1</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#39;\[\033_\u@\h:\w\033\\\]&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44</span><span>	;;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45</span><span>*<span style="color:#ff6ac1">)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46</span><span>	<span style="color:#ff5c57">unset</span> PS1
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47</span><span>	;;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48</span><span><span style="color:#ff6ac1">esac</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50</span><span><span style="color:#78787e"># Set colorful PS1 only on colorful terminals.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51</span><span><span style="color:#78787e"># dircolors --print-database uses its own built-in database</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52</span><span><span style="color:#78787e"># instead of using /etc/DIR_COLORS.  Try to use the external file</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53</span><span><span style="color:#78787e"># first to take advantage of user additions.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54</span><span><span style="color:#78787e"># We run dircolors directly due to its changes in file syntax and</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55</span><span><span style="color:#78787e"># terminal name patching.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56</span><span><span style="color:#ff5c57">use_color</span><span style="color:#ff6ac1">=</span><span style="color:#ff5c57">false</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57</span><span><span style="color:#ff6ac1">if</span> <span style="color:#ff5c57">type</span> -P dircolors &gt;/dev/null; <span style="color:#ff6ac1">then</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58</span><span>	<span style="color:#78787e"># Enable colors for ls, etc.  Prefer ~/.dir_colors #64489</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59</span><span>	<span style="color:#ff5c57">LS_COLORS</span><span style="color:#ff6ac1">=</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60</span><span>	<span style="color:#ff6ac1">if</span> <span style="color:#ff6ac1">[[</span> -f ~/.dir_colors <span style="color:#ff6ac1">]]</span>; <span style="color:#ff6ac1">then</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61</span><span>		<span style="color:#ff5c57">eval</span> <span style="color:#5af78e">&#34;</span><span style="color:#ff6ac1">$(</span>dircolors -b ~/.dir_colors<span style="color:#ff6ac1">)</span><span style="color:#5af78e">&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62</span><span>	<span style="color:#ff6ac1">elif</span> <span style="color:#ff6ac1">[[</span> -f /etc/DIR_COLORS <span style="color:#ff6ac1">]]</span>; <span style="color:#ff6ac1">then</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63</span><span>		<span style="color:#ff5c57">eval</span> <span style="color:#5af78e">&#34;</span><span style="color:#ff6ac1">$(</span>dircolors -b /etc/DIR_COLORS<span style="color:#ff6ac1">)</span><span style="color:#5af78e">&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64</span><span>	<span style="color:#ff6ac1">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65</span><span>		<span style="color:#ff5c57">eval</span> <span style="color:#5af78e">&#34;</span><span style="color:#ff6ac1">$(</span>dircolors -b<span style="color:#ff6ac1">)</span><span style="color:#5af78e">&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66</span><span>	<span style="color:#ff6ac1">fi</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67</span><span>	<span style="color:#78787e"># Note: We always evaluate the LS_COLORS setting even when it&#39;s the</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68</span><span>	<span style="color:#78787e"># default.  If it isn&#39;t set, then `ls` will only colorize by default</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69</span><span>	<span style="color:#78787e"># based on file attributes and ignore extensions (even the compiled</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70</span><span>	<span style="color:#78787e"># in defaults of dircolors). #583814</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71</span><span>	<span style="color:#ff6ac1">if</span> <span style="color:#ff6ac1">[[</span> -n <span style="color:#5af78e">${</span><span style="color:#ff5c57">LS_COLORS</span>:+set<span style="color:#5af78e">}</span> <span style="color:#ff6ac1">]]</span>; <span style="color:#ff6ac1">then</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72</span><span>		<span style="color:#ff5c57">use_color</span><span style="color:#ff6ac1">=</span><span style="color:#ff5c57">true</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73</span><span>	<span style="color:#ff6ac1">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74</span><span>		<span style="color:#78787e"># Delete it if it&#39;s empty as it&#39;s useless in that case.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75</span><span>		<span style="color:#ff5c57">unset</span> LS_COLORS
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76</span><span>	<span style="color:#ff6ac1">fi</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77</span><span><span style="color:#ff6ac1">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78</span><span>	<span style="color:#78787e"># Some systems (e.g. BSD &amp; embedded) don&#39;t typically come with</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79</span><span>	<span style="color:#78787e"># dircolors so we need to hardcode some terminals in here.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80</span><span>	<span style="color:#ff6ac1">case</span> <span style="color:#5af78e">${</span><span style="color:#ff5c57">TERM</span><span style="color:#5af78e">}</span> in
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81</span><span>	<span style="color:#ff6ac1">[</span>aEkx<span style="color:#ff6ac1">]</span>term* | rxvt* | gnome* | konsole* | screen | tmux | cons25 | *color<span style="color:#ff6ac1">)</span> <span style="color:#ff5c57">use_color</span><span style="color:#ff6ac1">=</span><span style="color:#ff5c57">true</span> ;;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82</span><span>	<span style="color:#ff6ac1">esac</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83</span><span><span style="color:#ff6ac1">fi</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85</span><span><span style="color:#ff6ac1">if</span> <span style="color:#5af78e">${</span><span style="color:#ff5c57">use_color</span><span style="color:#5af78e">}</span>; <span style="color:#ff6ac1">then</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86</span><span>	<span style="color:#ff6ac1">if</span> <span style="color:#ff6ac1">[[</span> <span style="color:#5af78e">${</span><span style="color:#ff5c57">EUID</span><span style="color:#5af78e">}</span> <span style="color:#ff6ac1">==</span> <span style="color:#ff9f43">0</span> <span style="color:#ff6ac1">]]</span>; <span style="color:#ff6ac1">then</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87</span><span>		<span style="color:#ff5c57">PS1</span><span style="color:#ff6ac1">+=</span><span style="color:#5af78e">&#39;\[\033[01;31m\]\h\[\033[01;34m\] \w \$\[\033[00m\] &#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88</span><span>	<span style="color:#ff6ac1">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89</span><span>		<span style="color:#ff5c57">PS1</span><span style="color:#ff6ac1">+=</span><span style="color:#5af78e">&#39;\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] &#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90</span><span>	<span style="color:#ff6ac1">fi</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92</span><span>	<span style="color:#78787e">#BSD#@export CLICOLOR=1</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94</span><span>	<span style="color:#ff5c57">alias</span> <span style="color:#ff5c57">ls</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#39;ls --color=auto&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95</span><span>	<span style="color:#ff5c57">alias</span> <span style="color:#ff5c57">grep</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#39;grep --colour=auto&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96</span><span>	<span style="color:#ff5c57">alias</span> <span style="color:#ff5c57">la</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#39;ls -A&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97</span><span>	<span style="color:#ff5c57">alias</span> <span style="color:#ff5c57">ll</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#39;ls -alF&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98</span><span>	<span style="color:#ff5c57">alias</span> <span style="color:#ff5c57">l</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#39;ls -CF&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99</span><span>	<span style="color:#ff5c57">alias</span> <span style="color:#ff5c57">n</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#39;neofetch&#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100</span><span><span style="color:#ff6ac1">else</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101</span><span>	<span style="color:#78787e"># show root@ when we don&#39;t have colors</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102</span><span>	<span style="color:#ff5c57">PS1</span><span style="color:#ff6ac1">+=</span><span style="color:#5af78e">&#39;\u@\h \w \$ &#39;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103</span><span><span style="color:#ff6ac1">fi</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105</span><span><span style="color:#ff6ac1">for</span> sh in /etc/bash/bashrc.d/*; <span style="color:#ff6ac1">do</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106</span><span>	<span style="color:#ff6ac1">[[</span> -r <span style="color:#5af78e">${</span><span style="color:#ff5c57">sh</span><span style="color:#5af78e">}</span> <span style="color:#ff6ac1">]]</span> <span style="color:#ff6ac1">&amp;&amp;</span> <span style="color:#ff5c57">source</span> <span style="color:#5af78e">&#34;</span><span style="color:#5af78e">${</span><span style="color:#ff5c57">sh</span><span style="color:#5af78e">}</span><span style="color:#5af78e">&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107</span><span><span style="color:#ff6ac1">done</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109</span><span><span style="color:#78787e"># Try to keep environment pollution down, EPA loves us.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110</span><span>u
 </span></span></code></pre></div><p>主要添加了别名，其他的可以自己修改</p>
 <p>还有一个镰刀锤子配置也蛮好看的，但使用<code>↑</code>键查看历史命令时有Bug,不介意的可以用</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-.bashrc" data-lang=".bashrc"><span style="display:flex;"><span> <span style="color:#e06c75">PS1</span><span style="color:#56b6c2">=</span><span style="color:#98c379">&#34;\e[1;32m\w\n\e[1;33m☭ \[</span><span style="color:#c678dd">$(</span>tput sgr0<span style="color:#c678dd">)</span><span style="color:#98c379">\]&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-.bashrc" data-lang=".bashrc"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span> <span style="color:#ff5c57">PS1</span><span style="color:#ff6ac1">=</span><span style="color:#5af78e">&#34;\e[1;32m\w\n\e[1;33m☭ \[</span><span style="color:#ff6ac1">$(</span>tput sgr0<span style="color:#ff6ac1">)</span><span style="color:#5af78e">\]&#34;</span>
 </span></span></code></pre></div><p>配置来源 <a href="https://www.zhihu.com/question/19803678/answer/1001803388">你怎么设置终端 PS1 prompt</a></p>
 <h4 id="sddm美化">SDDM美化</h4>
 <p>我们更换壁纸后一般连同SDDM的背景一起换了，但设置里的SDDM主题管理实在是难用，经常打不开更换界面，推荐直接到主题目录下更换</p>
@@ -438,7 +421,7 @@
 </ol>
 <h2 id="内核编译">内核编译</h2>
 <p>Arch下的内核编译只需要安装两个包即可</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pacman -S bc inetutils
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>sudo pacman -S bc inetutils
 </span></span></code></pre></div><p># inetutils提供hostsname</p>
 <p>到这里Arch的配置也基本完成了，我也可以睡个好觉了&hellip;</p>
 <p>再插一嘴，uu们有好的图床或对象储存推荐吗，博客老没图片也不行，最好能便宜点</p>
@@ -463,31 +446,22 @@
 </ol>
 </div>
 
-			</div>
+    
+  <div>
+    <div>Tags:</div>
+    <ul>
+        <li><a href="/tags/linux/">Linux</a></li>
+        <li><a href="/tags/kernel/">Kernel</a></li>
+    </ul>
+  </div>
 
-			<div class="tags">
-				
-					
-						<ul class="flat">
-							
-							<li><a href="/tags/linux">Linux</a></li>
-							
-							<li><a href="/tags/kernel">Kernel</a></li>
-							
-						</ul>
-					
-				
-			</div></div>
-	</div>
-	<div class="footer wrapper">
-	<nav class="nav">
-		<div>2025  sorgDream CC BY-NC-SA 4.0 |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
-	</nav>
 </div>
 
+    </main>
+    <footer>
+        <p>FROM 2023 TO 2025 &&lt;|>& Croyoux Lite</p>
 
-  
-
-<script>feather.replace()</script>
+    </footer>
 </body>
+
 </html>

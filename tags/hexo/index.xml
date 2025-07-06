@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hexo on sorgdream&#39;s blog</title>
+    <title>Hexo on croyoux&#39;s blog</title>
     <link>https://blog.sorgdream.com/tags/hexo/</link>
-    <description>Recent content in Hexo on sorgdream&#39;s blog</description>
+    <description>Recent content in Hexo on croyoux&#39;s blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <copyright>sorgDream CC BY-NC-SA 4.0</copyright>
     <lastBuildDate>Sun, 17 Sep 2023 12:21:23 +0000</lastBuildDate>
     <atom:link href="https://blog.sorgdream.com/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -18,9 +17,9 @@
     </item>
     <item>
       <title>hexo建立个人博客并部署到GitHub</title>
-      <link>https://blog.sorgdream.com/posts/_hexo/</link>
+      <link>https://blog.sorgdream.com/posts/hexo/</link>
       <pubDate>Sat, 12 Aug 2023 08:21:23 +0000</pubDate>
-      <guid>https://blog.sorgdream.com/posts/_hexo/</guid>
+      <guid>https://blog.sorgdream.com/posts/hexo/</guid>
       <description>&lt;h2 id=&#34;介绍&#34;&gt;介绍&lt;/h2&gt;&#xA;&lt;p&gt;hexo是什么&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他标记语言）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;fluid是什么&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Fluid 是基于 Hexo 的一款 Material Design 风格的主题&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
     <item>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C on croyoux&#39;s blog</title>
+    <link>https://blog.sorgdream.com/tags/c/</link>
+    <description>Recent content in C on croyoux&#39;s blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Jul 2025 14:25:31 +0800</lastBuildDate>
+    <atom:link href="https://blog.sorgdream.com/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用 gtk4 写 todo</title>
+      <link>https://blog.sorgdream.com/posts/todo_gtk/</link>
+      <pubDate>Sat, 05 Jul 2025 14:25:31 +0800</pubDate>
+      <guid>https://blog.sorgdream.com/posts/todo_gtk/</guid>
+      <description>终于考完了，期末考9科实在是太折磨了；发现自己很久没写文章了，上次更新还在去年，最近都在探索gtk， 就顺便写一篇记录下成果。&#xA;工具 gtk主要参考的就是官方的API reference，目前支持gtk3-4(我想也没人会去用gtk3以前的版本)的内容；其中包含 一个Widget Gallery，里面有所有当前版本的控件介绍和API。&#xA;官方的文档我认为还是很详细的，但有时候不清楚怎么使用时也还是需要去搜索用例，官方的文档一般不包含示例&#xA;IDE 和gtk有关的ide我目前找到的是Gnome Builder，介绍说是Gnome环境下的开发工具；我曾经用它编写过一些小 项目，但我认为它的补全和插件都不够完善，所以转而使用Vscode。&#xA;真要说起来，gtk的编写应该只需要一个文本编辑器，gtk4的大部分函数名都比较好记，这方面IDE也只是方便补全一些变量和函数名，提供高亮支持&#xA;构建工具 和上文说的一样，你可以选择不使用任何构建工具，使用pkg-config查找依赖和cflags后手动编译；但这样太过原始了，也不方便调试&#xA;Meson Meson是gnome项目主要的编译工具，Gnome Builder也会默认安装此工具，它基于一个简单的构建配置生成build.ninja，有点像Cmake和Makefile。&#xA;此外，在build目录下会生成compile_commands.json，clangd可以根据此文件提供高亮和补全支持；Meson还支持增量编译，比直接重新编译更快。&#xA;Meson的文档中就包含构建gtk的示例，用dependency提供名称，Meson就能自动查找并引入依赖</description>
+    </item>
+  </channel>
+</rss>

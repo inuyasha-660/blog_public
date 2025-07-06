@@ -2,20 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://blog.sorgdream.com/tags/c/</loc>
+    <lastmod>2025-07-05T14:25:31+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.sorgdream.com/</loc>
+    <lastmod>2025-07-05T14:25:31+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.sorgdream.com/tags/gtk/</loc>
+    <lastmod>2025-07-05T14:25:31+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.sorgdream.com/posts/</loc>
+    <lastmod>2025-07-05T14:25:31+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.sorgdream.com/tags/</loc>
+    <lastmod>2025-07-05T14:25:31+08:00</lastmod>
+  </url><url>
+    <loc>https://blog.sorgdream.com/posts/todo_gtk/</loc>
+    <lastmod>2025-07-05T14:25:31+08:00</lastmod>
+  </url><url>
     <loc>https://blog.sorgdream.com/tags/driver/</loc>
     <lastmod>2024-08-08T15:31:05+08:00</lastmod>
   </url><url>
     <loc>https://blog.sorgdream.com/tags/freebsd/</loc>
     <lastmod>2024-08-08T15:31:05+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.sorgdream.com/posts/</loc>
-    <lastmod>2024-11-23T00:59:06+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.sorgdream.com/</loc>
-    <lastmod>2024-11-23T00:59:06+08:00</lastmod>
-  </url><url>
-    <loc>https://blog.sorgdream.com/tags/</loc>
-    <lastmod>2024-11-23T00:59:06+08:00</lastmod>
   </url><url>
     <loc>https://blog.sorgdream.com/posts/wifibox/</loc>
     <lastmod>2024-08-08T15:31:05+08:00</lastmod>
@@ -59,7 +68,7 @@
     <loc>https://blog.sorgdream.com/tags/hugo/</loc>
     <lastmod>2023-11-05T13:23:01+00:00</lastmod>
   </url><url>
-    <loc>https://blog.sorgdream.com/posts/_hugo/</loc>
+    <loc>https://blog.sorgdream.com/posts/hugo/</loc>
     <lastmod>2023-11-05T13:23:01+00:00</lastmod>
   </url><url>
     <loc>https://blog.sorgdream.com/friends/</loc>
@@ -89,7 +98,7 @@
     <loc>https://blog.sorgdream.com/posts/shell/</loc>
     <lastmod>2023-08-19T21:34:04+00:00</lastmod>
   </url><url>
-    <loc>https://blog.sorgdream.com/posts/_hexo/</loc>
+    <loc>https://blog.sorgdream.com/posts/hexo/</loc>
     <lastmod>2023-08-12T08:21:23+00:00</lastmod>
   </url><url>
     <loc>https://blog.sorgdream.com/posts/google.bing/</loc>

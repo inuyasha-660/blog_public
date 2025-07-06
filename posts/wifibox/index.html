@@ -1,122 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us" dir="ltr">
+
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Wifibox的配置与使用 - sorgdream&#39;s blog</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	
-  <meta itemprop="name" content="Wifibox的配置与使用">
-  <meta itemprop="description" content="最近几天，我在Redmi Book Pro 14s上安装了FreeBSD 14.1-RELEASE，也算是体验了一把UNIX哲学，但因FreeBSD的驱动太过匮乏了，导致我的安装并不顺利，也就有了这篇文章
-bhyve bhyve，发音为“beehive”，是 FreeBSD 的虚拟机管理程序 / 虚拟机管理器，支持带有“POPCNT”（POPulation Count）功能的 Intel 和 AMD 处理器上的多种客户操作系统，以及在实验中支持 gic0：ARM Generic Interrupt Controller v3.0 功能的 ARM64/aarch64 处理器
-bhyve 支持多种存储和网络后端、UEFI、FreeBSD 加载器和 GRUB 启动、PCI 直通 (PPT)、集成 VNC 和 9pfs 服务器以及更多功能
-Wifibox bhyve supports passing of host PCI devices to a virtual machine for its exclusive use of them.
-Wifibox则是借助其PCI直通技术，部署了一个 Linux 客户机，借助 PCI 直通技术驱动 FreeBSD 主机系统上的无线网卡
-Wifibox的日志位于/var/run/wifibox/appliance/log，可以很方便地观察它的运行状态
-配置 我的网卡是RTL8852be，用ifconfig查看只有一个设备，其ip为127.0.0.1，若网卡在FreeBSD下有驱动支持，则需要额外禁用自带驱动
-安装 Wifibox 因为安装需要网络，我们将数据线插入电脑，开启USB网络共享，用ifconfig查看是否识别到设备ue0 dhclient ue0 # 获取ip 连接完后安装 Wifibox">
-  <meta itemprop="datePublished" content="2024-07-10T08:27:11+08:00">
-  <meta itemprop="dateModified" content="2024-08-08T15:31:05+08:00">
-  <meta itemprop="wordCount" content="151">
-  <meta itemprop="keywords" content="FreeBSD,Driver"><meta property="og:url" content="https://blog.sorgdream.com/posts/wifibox/">
-  <meta property="og:site_name" content="sorgdream&#39;s blog">
-  <meta property="og:title" content="Wifibox的配置与使用">
-  <meta property="og:description" content="最近几天，我在Redmi Book Pro 14s上安装了FreeBSD 14.1-RELEASE，也算是体验了一把UNIX哲学，但因FreeBSD的驱动太过匮乏了，导致我的安装并不顺利，也就有了这篇文章
-bhyve bhyve，发音为“beehive”，是 FreeBSD 的虚拟机管理程序 / 虚拟机管理器，支持带有“POPCNT”（POPulation Count）功能的 Intel 和 AMD 处理器上的多种客户操作系统，以及在实验中支持 gic0：ARM Generic Interrupt Controller v3.0 功能的 ARM64/aarch64 处理器
-bhyve 支持多种存储和网络后端、UEFI、FreeBSD 加载器和 GRUB 启动、PCI 直通 (PPT)、集成 VNC 和 9pfs 服务器以及更多功能
-Wifibox bhyve supports passing of host PCI devices to a virtual machine for its exclusive use of them.
-Wifibox则是借助其PCI直通技术，部署了一个 Linux 客户机，借助 PCI 直通技术驱动 FreeBSD 主机系统上的无线网卡
-Wifibox的日志位于/var/run/wifibox/appliance/log，可以很方便地观察它的运行状态
-配置 我的网卡是RTL8852be，用ifconfig查看只有一个设备，其ip为127.0.0.1，若网卡在FreeBSD下有驱动支持，则需要额外禁用自带驱动
-安装 Wifibox 因为安装需要网络，我们将数据线插入电脑，开启USB网络共享，用ifconfig查看是否识别到设备ue0 dhclient ue0 # 获取ip 连接完后安装 Wifibox">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2024-07-10T08:27:11+08:00">
-    <meta property="article:modified_time" content="2024-08-08T15:31:05+08:00">
-    <meta property="article:tag" content="FreeBSD">
-    <meta property="article:tag" content="Driver">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wifibox的配置与使用 | croyoux&#39;s blog</title>
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Wifibox的配置与使用">
-  <meta name="twitter:description" content="最近几天，我在Redmi Book Pro 14s上安装了FreeBSD 14.1-RELEASE，也算是体验了一把UNIX哲学，但因FreeBSD的驱动太过匮乏了，导致我的安装并不顺利，也就有了这篇文章
-bhyve bhyve，发音为“beehive”，是 FreeBSD 的虚拟机管理程序 / 虚拟机管理器，支持带有“POPCNT”（POPulation Count）功能的 Intel 和 AMD 处理器上的多种客户操作系统，以及在实验中支持 gic0：ARM Generic Interrupt Controller v3.0 功能的 ARM64/aarch64 处理器
-bhyve 支持多种存储和网络后端、UEFI、FreeBSD 加载器和 GRUB 启动、PCI 直通 (PPT)、集成 VNC 和 9pfs 服务器以及更多功能
-Wifibox bhyve supports passing of host PCI devices to a virtual machine for its exclusive use of them.
-Wifibox则是借助其PCI直通技术，部署了一个 Linux 客户机，借助 PCI 直通技术驱动 FreeBSD 主机系统上的无线网卡
-Wifibox的日志位于/var/run/wifibox/appliance/log，可以很方便地观察它的运行状态
-配置 我的网卡是RTL8852be，用ifconfig查看只有一个设备，其ip为127.0.0.1，若网卡在FreeBSD下有驱动支持，则需要额外禁用自带驱动
-安装 Wifibox 因为安装需要网络，我们将数据线插入电脑，开启USB网络共享，用ifconfig查看是否识别到设备ue0 dhclient ue0 # 获取ip 连接完后安装 Wifibox">
-<link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" media="screen" href="https://blog.sorgdream.com/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://blog.sorgdream.com/css/main.css" />
+      <link rel="stylesheet" href="/css/main.min.898ba31517d006a90a71e1fe47713928df9590df0d1c5aa1848183d930492ab6.css" integrity="sha256-iYujFRfQBqkKceH&#43;R3E5KN&#43;VkN8NHFqhhIGD2TBJKrY=" crossorigin="anonymous">
 
-        <link id="dark-scheme" rel="stylesheet" type="text/css" href="https://blog.sorgdream.com/css/dark.css" />
 
-	<script src="https://blog.sorgdream.com/js/feather.min.js"></script>
-	
-		<script src="https://blog.sorgdream.com/js/main.js"></script>
+
 </head>
 
 <body>
-	<div class="container wrapper">
-		<div class="header">
-	
-		<div class="avatar">
-			<a href="https://blog.sorgdream.com/">
-				<img src="/avatar.jpg" alt="sorgdream&#39;s blog" />
-			</a>
-		</div>
-	
-	<h1 class="site-title"><a href="https://blog.sorgdream.com/">sorgdream&#39;s blog</a></h1>
-	<div class="site-description"><p>逆水行舟，不进则退</p><nav class="nav social">
-			<ul class="flat"><li><a href="https://gitlab.com/croyoux" title="croyoux"><i data-feather="gitlab"></i></a></li><li><a href="mailto:i@sorgdream.com" title="i@sorgdream.com"><i data-feather="mail"></i></a></li><li><a href="#" class="scheme-toggle" id="scheme-toggle"></a></li></ul>
-		</nav>
-	</div>
-
-	<nav class="nav">
-		<ul class="flat">
-			
-			<li>
-				<a href="/posts">Archive</a>
-			</li>
-			
-			<li>
-				<a href="/tags">Tags</a>
-			</li>
-			
-			<li>
-				<a href="/friends">Friends</a>
-			</li>
-			
-			<li>
-				<a href="/index.xml">RSS Feed</a>
-			</li>
-			
-			<li>
-				<a href="/about">About</a>
-			</li>
-			
-		</ul>
-	</nav>
-</div>
+    <header>
+        <h1><a href="/">croyoux&#39;s blog</a></h1>
+<style>
+    h1 a {
+        color: white;
+    }
+</style>
 
 
-		<div class="post">
-			<div class="post-header">
-				
-					<div class="meta">
-						<div class="date">
-							<span class="day">10</span>
-							<span class="rest">Jul 2024</span>
-						</div>
-					</div>
-				
-				<div class="matter">
-					<h1 class="title">Wifibox的配置与使用</h1>
-				</div>
-			</div>
-					
-			<div class="markdown">
-				<p>最近几天，我在<code>Redmi Book Pro 14s</code>上安装了<code>FreeBSD 14.1-RELEASE</code>，也算是体验了一把UNIX哲学，但因FreeBSD的驱动太过匮乏了，导致我的安装并不顺利，也就有了这篇文章</p>
+  <nav>
+    <ul>
+    <li>
+      <a href="/tags">Tags</a>
+    </li>
+    <li>
+      <a href="/friends">Friends</a>
+    </li>
+    <li>
+      <a href="/index.xml">RSS Feed</a>
+    </li>
+    <li>
+      <a href="/about">About</a>
+    </li>
+    </ul>
+  </nav>
+
+<style>
+    header ul {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header li {
+
+        flex: 1;
+    }
+
+    @media (max-width: 600px) {
+        header ul {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        header li {
+            flex: 1 0 50%;
+            width: 50%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    }
+</style>
+    </header>
+    <main>
+        
+<div class="post">
+    <h1>Wifibox的配置与使用</h1>
+
+    
+    
+    <time datetime="2024-07-10T08:27:11&#43;08:00">July 10, 2024</time>
+
+    <p>最近几天，我在<code>Redmi Book Pro 14s</code>上安装了<code>FreeBSD 14.1-RELEASE</code>，也算是体验了一把UNIX哲学，但因FreeBSD的驱动太过匮乏了，导致我的安装并不顺利，也就有了这篇文章</p>
 <h2 id="bhyve">bhyve</h2>
 <blockquote>
 <p>bhyve，发音为“beehive”，是 FreeBSD 的虚拟机管理程序 / 虚拟机管理器，支持带有“POPCNT”（POPulation Count）功能的 Intel 和 AMD 处理器上的多种客户操作系统，以及在实验中支持 gic0：ARM Generic Interrupt Controller v3.0 功能的 ARM64/aarch64 处理器</p>
@@ -134,37 +96,37 @@ Wifibox的日志位于/var/run/wifibox/appliance/log，可以很方便地观察�
 <ol>
 <li>因为安装需要网络，我们将数据线插入电脑，开启USB网络共享，用<code>ifconfig</code>查看是否识别到设备<code>ue0</code></li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dhclient ue0 <span style="color:#7f848e"># 获取ip</span>
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>dhclient ue0 <span style="color:#78787e"># 获取ip</span>
 </span></span></code></pre></div><p>连接完后安装 Wifibox</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pkg install wifibox-rtw89 wifibox-alpine-rtw89
-</span></span><span style="display:flex;"><span>pkg install sysutils/bhyve+
-</span></span><span style="display:flex;"><span>pkg install gtar patchelf squashfs-tools-ng
-</span></span><span style="display:flex;"><span>pkg install grub2-bhyve socat
-</span></span><span style="display:flex;"><span>pkg install wpa_supplicant
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>pkg install wifibox-rtw89 wifibox-alpine-rtw89
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>pkg install sysutils/bhyve+
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>pkg install gtar patchelf squashfs-tools-ng
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>pkg install grub2-bhyve socat
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>pkg install wpa_supplicant
 </span></span></code></pre></div><ol start="2">
 <li>用<code>pciconf -lv | less</code>查看设备，找到<code>class</code>为<code>network</code>的设备，并将其填写至<code>/usr/local/etc/wifibox/bhyve.conf</code></li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>none1@pci0:1:0:0 clash=....
-</span></span><span style="display:flex;"><span>    vendor = &#39;Realtek Semiconductor Co., Ltd.&#39;
-</span></span><span style="display:flex;"><span>    device = &#39;RTL8852BE PCIe 802.11ax ...&#39;
-</span></span><span style="display:flex;"><span>    class  = network
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>none1@pci0:1:0:0 clash=....
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    vendor = &#39;Realtek Semiconductor Co., Ltd.&#39;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    device = &#39;RTL8852BE PCIe 802.11ax ...&#39;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>    class  = network
 </span></span></code></pre></div><p>比如我这里显示为<code>0:1:0:0</code>，就将<code>1/0/0</code>填写到<code>/usr/local/etc/wifibox/bhyve.conf</code>的<code>passthru=</code>中</p>
 <ol start="3">
 <li>在<code> /etc/rc.conf</code>中写入以下配置启用Wifibox</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>wifibox_enable=&#34;YES&#34;
-</span></span><span style="display:flex;"><span>ifconfig_wifibox0=&#34;SYNCDHCP&#34;
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>wifibox_enable=&#34;YES&#34;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>ifconfig_wifibox0=&#34;SYNCDHCP&#34;
 </span></span></code></pre></div><p>一些教程中会将以下两条配置也添加进<code>/etc/rc.conf</code>，但在我的设备中会导致网络不可用</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>background_dhclient_wifibox0=&#34;YES&#34;
-</span></span><span style="display:flex;"><span>defaultroute_delay=&#34;0&#34;
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>background_dhclient_wifibox0=&#34;YES&#34;
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>defaultroute_delay=&#34;0&#34;
 </span></span></code></pre></div><p>最后，将以下内容添加到<code>/boot/loader.conf</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>hw.vmm.amdvi.enable=&#34;1&#34;
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>hw.vmm.amdvi.enable=&#34;1&#34;
 </span></span></code></pre></div><ol start="4">
 <li>使用 wpa_passphrase 生成网络配置</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wpa_passphrase &lt;网络名称&gt; &lt;密码&gt; &gt; /etc/wpa_supplicant.conf
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>wpa_passphrase &lt;网络名称&gt; &lt;密码&gt; &gt; /etc/wpa_supplicant.conf
 </span></span></code></pre></div><p>将配置复制到 Wifibox</p>
-<div class="highlight"><pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cp /etc/wpa_supplicant.conf /usr/local/etc/wifibox/wpa_supplicant/
+<div class="highlight"><pre tabindex="0" style="color:#e2e4e5;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>cp /etc/wpa_supplicant.conf /usr/local/etc/wifibox/wpa_supplicant/
 </span></span></code></pre></div><ol start="5">
 <li>
 <p>这时候就应该重启了，但在我的网卡上，必须在启动时获取<code>Wifibox0</code>的ip，否则网络将无法工作</p>
@@ -175,31 +137,22 @@ Wifibox的日志位于/var/run/wifibox/appliance/log，可以很方便地观察�
 <h2 id="更新">更新</h2>
 <p>FreeBSD 目前已提供 RTW89 驱动支持，详情 <a href="https://wiki.freebsd.org/WiFi/Rtw89">Realtek RTW89</a></p>
 
-			</div>
+    
+  <div>
+    <div>Tags:</div>
+    <ul>
+        <li><a href="/tags/freebsd/">FreeBSD</a></li>
+        <li><a href="/tags/driver/">Driver</a></li>
+    </ul>
+  </div>
 
-			<div class="tags">
-				
-					
-						<ul class="flat">
-							
-							<li><a href="/tags/freebsd">FreeBSD</a></li>
-							
-							<li><a href="/tags/driver">Driver</a></li>
-							
-						</ul>
-					
-				
-			</div></div>
-	</div>
-	<div class="footer wrapper">
-	<nav class="nav">
-		<div>2025  sorgDream CC BY-NC-SA 4.0 |  <a href="https://github.com/knadh/hugo-ink">Ink</a> theme on <a href="https://gohugo.io">Hugo</a></div>
-	</nav>
 </div>
 
+    </main>
+    <footer>
+        <p>FROM 2023 TO 2025 &&lt;|>& Croyoux Lite</p>
 
-  
-
-<script>feather.replace()</script>
+    </footer>
 </body>
+
 </html>

@@ -2,10 +2,11 @@
 <html lang="en-us" dir="ltr">
 
 <head>
+	<meta name="generator" content="Hugo 0.131.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Kernel | croyoux&#39;s blog</title>
+<title>croyoux&#39;s blog</title>
 
       <link rel="stylesheet" href="/css/main.min.898ba31517d006a90a71e1fe47713928df9590df0d1c5aa1848183d930492ab6.css" integrity="sha256-iYujFRfQBqkKceH&#43;R3E5KN&#43;VkN8NHFqhhIGD2TBJKrY=" crossorigin="anonymous">
 
@@ -71,17 +72,9 @@
     </header>
     <main>
         
-<h1>Kernel</h1>
 
 
 
-<h2><a href="/posts/arch-kde/">Arch下的Kde配置</a></h2>
-2024年的第一篇文章，祝大家新年快乐(虽然有点迟了)
-这段时间重装了6次Arch，1次Debian Testing，几乎将主流桌面体验完了，血与泪的教训，wayland目前还不成熟，高分屏还得老老实实用x11
-起因 逛B站时偶然看到了有人发Hyprland的配置，再看我的Kde瞬间就不香了
-拿出我珍藏多年的Arch Live CD ，F12选择U盘启动，在经过一系列分区，生成fstab，引导后，成功来到了熟悉的tty界面，接下来照着B站的教程，开始安装Hyprland
-Hyprland Hyprland is a highly customizable dynamic tiling Wayland compositor that doesn&rsquo;t sacrifice on its looks.
-<hr>
 
 
 <h2><a href="/posts/kernelsu/">KernelSU内核编译</a></h2>
@@ -93,6 +86,47 @@ Hyprland Hyprland is a highly customizable dynamic tiling Wayland compositor tha
 <p>注：wsl将系统各盘挂载至<code>/mnt</code>目录，通过此挂载点可以实现文件传输</p>
 </blockquote>
 <hr>
+
+<h2><a href="/posts/termux/">手机终端termux</a></h2>
+<h2 id="介绍">介绍</h2>
+<blockquote>
+<p>Termux 是一款Android 终端模拟器和 Linux 环境应用程序，无需 root 或设置即可直接运行。自动安装最小的基本系统 - 使用 APT 包管理器可以使用其他包。</p>
+</blockquote>
+<h2 id="安装">安装</h2>
+<p>你可以在<a href="https://github.com/termux/termux-app">Github</a>和<a href="https://f-droid.org/zh_Hans/packages/com.termux/">F-Droid</a>找到安装包</p>
+<p><!-- raw HTML omitted -->但我并不推荐你安装github或play商店上的termux，因为一些拓展程序是分版本的，你在github上下的用不了f-droid商店上的拓展，而play商店上的拓展是要花钱的，所以我推荐都在F-Droid上下载</p>
+<hr>
+
+
+<nav class="pagination">
+    
+    <a href="/page/3/" class="prev">Prev</a>
+    
+    
+</nav>
+<style>
+    .pagination {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .pagination .prev {
+        order: 1;
+    }
+
+    .pagination-spacer {
+        flex: 1;
+    }
+
+    .pagination .next {
+        order: 3;
+        margin-left: auto;
+    }
+</style>
+
+
+
 
 
 
