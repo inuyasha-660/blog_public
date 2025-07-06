@@ -12,6 +12,10 @@ header h1 {
     background-image: linear-gradient(to right, red, yellow);
 }
 
+main {
+    word-break: break-all;
+}
+
 pre {
     overflow-x: auto;
 }
